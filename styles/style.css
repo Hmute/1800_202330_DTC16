@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .card-img {
     object-fit: cover;
 }
@@ -27,4 +28,20 @@
 
 .contentinfo {
     font-size: 12px;
+=======
+.card img {
+  height: 300px;
+}
+
+.container-height {
+  height: 50px;
+}
+
+.container-fluid {
+  background-color: #d9d9d9;
+}
+
+.card:hover {
+  background-color: #867777;
+>>>>>>> 35abace85541a16e00a19bc810f09ae0eb795676
 }
