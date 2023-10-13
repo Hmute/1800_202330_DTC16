@@ -1,13 +1,11 @@
-<<<<<<< HEAD
-.card img{
-    height: 300px;
+.card img {
+  height: 300px;
 }
-=======
-.container-height{
+
+.container-height {
   height: 50px;
 }
 
-.container-fluid{
+.container-fluid {
   background-color: #d9d9d9;
 }
->>>>>>> a971abc09c30788e54ccb5f380bb29a737d90f1e
