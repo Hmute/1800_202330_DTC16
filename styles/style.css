@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .card-img {
     object-fit: cover;
 }
@@ -30,7 +29,7 @@
     font-size: 12px;
 
 }
-=======
+
 .card img {
   height: 300px;
 }
@@ -48,5 +47,5 @@
 }
 .card:hover {
   background-color: #867777;
->>>>>>> 35abace85541a16e00a19bc810f09ae0eb795676
+
 }
