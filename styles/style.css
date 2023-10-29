@@ -1,32 +1,32 @@
 .card-img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .content {
 
-    background-color: #D9D9D9;
-    border-radius: 30px;
-  
-    border: none;
-    padding: 30px
+  background-color: #D9D9D9;
+  border-radius: 30px;
+
+  border: none;
+  padding: 30px
 }
 
 .contentright {
-    text-align: center;
-    padding-top: 5px;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .contenttitle {
-    font-size: 40 px;
+  font-size: 40 px;
 }
 
 .contentdate {
 
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .contentinfo {
-    font-size: 12px;
+  font-size: 12px;
 
 }
 
@@ -45,7 +45,13 @@
 .card img {
   height: 250px;
 }
+
 .card:hover {
   background-color: #867777;
 
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
 }

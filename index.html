@@ -31,6 +31,15 @@
         crossorigin="anonymous"></script>
 
     <!-- Other libraries go here -->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -38,15 +47,15 @@
 </head>
 
 <body>
-    <div class="widgets" >
+    <div class="widgets">
         <div class="sports-widgets" style="gap: 1em;">
             <div class="container-fluid container-height d-flex align-items-center">
                 <div class="input-group col">
                     <span class="input-group-text border-right-0" id="search-addon">
                         <i class="fas fa-search"></i>
                     </span>
-                    <input type="search" class="form-control col-8 border-left-0" placeholder="Search" aria-label="Search"
-                        aria-describedby="search-addon" />
+                    <input type="search" class="form-control col-8 border-left-0" placeholder="Search"
+                        aria-label="Search" aria-describedby="search-addon" />
                 </div>
                 <div class="col-auto">
                     <i class="fas fa-user-circle fa-4x"></i>
@@ -58,7 +67,8 @@
                         <img src="./images/baseball-ball.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Sport 1 - Basketball</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolorum obcaecati
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolorum
+                                obcaecati
                                 fugit repellat voluptate esse atque eligendi quod aliquam minus!</p>
                             <button type="button" class="btn btn-outline-secondary">View More</button>
                         </div>
@@ -69,7 +79,8 @@
                         <a href=""><img src="./images/shuttlecock.png" class="card-img-top" alt="..."></a>
                         <div class="card-body">
                             <h5 class="card-title">Sport 2 - Badminton</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, ratione
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+                                ratione
                                 molestiae vero quos provident eaque accusamus incidunt porro animi consequuntur?</p>
                             <button type="button" class="btn btn-outline-secondary">View More</button>
                         </div>
@@ -80,7 +91,8 @@
                         <a href="#"><img src="./images/volleyball-ball.png" class="card-img-top" alt="..."></a>
                         <div class="card-body">
                             <h5 class="card-title">Sport 3 - Volleyball</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, ratione
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+                                ratione
                                 molestiae vero quos provident eaque accusamus incidunt porro animi consequuntur?</p>
                             <button type="button" class="btn btn-outline-secondary">View More</button>
                         </div>
@@ -91,7 +103,8 @@
                         <a href="#"><img src="./images/soccer.png" class="card-img-top" alt="..."></a>
                         <div class="card-body">
                             <h5 class="card-title">Sport 4 - soccer</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, ratione
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+                                ratione
                                 molestiae vero quos provident eaque accusamus incidunt porro animi consequuntur?</p>
                             <button type="button" class="btn btn-outline-secondary">View More</button>
                         </div>
@@ -102,7 +115,8 @@
                         <a href="#"><img src="./images/cricket-bat.png" class="card-img-top" alt="..."></a>
                         <div class="card-body">
                             <h5 class="card-title">Sport 5 - Cricket</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, ratione
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia,
+                                ratione
                                 molestiae vero quos provident eaque accusamus incidunt porro animi consequuntur?</p>
                             <button type="button" class="btn btn-outline-secondary">View More</button>
                         </div>
@@ -113,12 +127,9 @@
     </div>
 
     </div>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
+
     <footer class="bg-light text-center text-white fixed-bottom">
-        <!-- Grid container -->
         <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
             <section class="mb-4">
                 <!-- Home -->
                 <a class="btn text-dark btn-floating m-1" href="#!" role="button"><i class="fa fa-home fa-2x"></i></a>
@@ -149,6 +160,8 @@
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="./scripts/authentication.js"></script>
 
 </body>
 
