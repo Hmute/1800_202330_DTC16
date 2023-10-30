@@ -55,7 +55,6 @@
   width: 100%;
   height: auto;
 }
-
 .search-box{
   background-color: white;
   width: 80%;
@@ -65,11 +64,34 @@
 
 .search-bar{
   font-family: sans-serif;
+  background: transparent;
 }
 
 .search-bar:focus{
   border: none;
   outline: none;
+}
+
+.fixed-height{
+  height: 70px;
+}
+
+.result-box ul li{
+  list-style: none;
+  padding-top: 12px;
+  cursor: pointer;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.result-box ul li:hover{
+  background-color: rgb(189, 189, 238);
+  border-radius: 5px;
+}
+
+ul{
+  padding: 0px;
 }
 
 

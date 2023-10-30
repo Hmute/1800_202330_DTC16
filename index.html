@@ -44,27 +44,31 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
 
+
 </head>
 
 <body>
     <!-- Top Part -->
-    <div class="container-fluid py-3">
+    <div class="container-fluid py-3 fixed-height">
         <div class="row align-items-center">
             <div class="col-8">
                 <div class="search-box d-flex px-3 align-items-center">
                     <div class="search-icon pr-2"><i class="fa fa-search" aria-hidden="true"></i></div>
-                    <input type="text" name="" id="" placeholder="Search"
-                        class="border border-0 mr-2 search-bar flex-grow-1">
+                    <input type="text" name="" id="search-bar" placeholder="Search"
+                        class="border border-0 mr-2 search-bar flex-grow-1" autocomplete="off">
+
                 </div>
             </div>
-
             <div class="col-auto ml-auto">
                 <i class="fa fa-user-circle" style="font-size: 48px;"></i>
             </div>
         </div>
+        <div class="container-fluid bg-white rounded-4 py-2 result-box z-3" style="display: none;">
+            <div class="result-box">
+            </div>
+        </div>
     </div>
-    <!-- Next Part -->
-    </div>
+
     <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 10px;">
         <div class="col">
             <div class="card h-75">
@@ -166,6 +170,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/authentication.js"></script>
+    <script src="scripts/autocomplete.js"></script>
 
 </body>
 
