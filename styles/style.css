@@ -55,3 +55,21 @@
   width: 100%;
   height: auto;
 }
+
+.search-box{
+  background-color: white;
+  width: 80%;
+  border-radius: 50px;
+  height: 30px;
+}
+
+.search-bar{
+  font-family: sans-serif;
+}
+
+.search-bar:focus{
+  border: none;
+  outline: none;
+}
+
+
