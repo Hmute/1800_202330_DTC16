@@ -1,0 +1,167 @@
+.card-img {
+  object-fit: cover;
+}
+
+.content {
+
+  background-color: #D9D9D9;
+  border-radius: 30px;
+
+  border: none;
+  padding: 30px
+}
+
+.contentright {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.contenttitle {
+  font-size: 40 px;
+}
+
+.contentdate {
+
+  font-size: 20px;
+}
+
+.contentinfo {
+  font-size: 12px;
+
+}
+
+.card img {
+  height: 300px;
+}
+
+.container-height {
+  height: 50px;
+}
+
+.container-fluid {
+  background-color: #d9d9d9;
+}
+
+.card img {
+  height: 250px;
+}
+
+.card:hover {
+  background-color: #867777;
+
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.search-box {
+  background-color: white;
+  width: 80%;
+  border-radius: 50px;
+  height: 30px;
+}
+
+.search-bar {
+  font-family: sans-serif;
+  background: transparent;
+}
+
+.search-bar:focus {
+  border: none;
+  outline: none;
+}
+
+.fixed-height {
+  height: 70px;
+}
+
+.result-box ul li {
+  list-style: none;
+  padding-top: 12px;
+  cursor: pointer;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  z-index: 9999;
+}
+
+.result-box ul li:hover {
+  background-color: rgb(189, 189, 238);
+  border-radius: 5px;
+}
+
+ul {
+  padding: 0px;
+}
+
+
+/* Ben's css */
+
+.thebox {
+
+  border-radius: 40px;
+  background-color: lightgray;
+  border: none;
+  padding: 10px;
+}
+
+.card img.logo {
+
+  width: 50%;
+  height: 100%;
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .box-title {
+
+    font-size: 20px;
+
+  }
+
+  .card img.logo {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .boxinfo {
+    font-size: 10px;
+  }
+
+  .date {
+
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 300px) {
+
+
+  .box-title {
+
+    font-size: 15px;
+
+  }
+
+  .card img.logo {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .boxinfo {
+    font-size: 8px;
+  }
+
+  .date {
+
+    font-size: 12px;
+  }
+
+
+}
