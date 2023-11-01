@@ -165,3 +165,77 @@ ul {
 
 
 }
+
+
+/* gym card css */
+
+
+.gym {
+
+  border-radius: 40px;
+  background-color: lightgray;
+  border: none;
+  padding: 10px;
+}
+
+
+
+
+.card img.logo {
+
+  width: 50%;
+  height: 100%;
+}
+
+
+@media screen and (max-width: 500px) {
+
+  .box-title {
+
+    font-size: 20px;
+
+  }
+
+  .card img.logo {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .boxinfo {
+    font-size: 10px;
+  }
+
+  .date {
+
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 300px) {
+
+
+  .box-title {
+
+    font-size: 15px;
+
+  }
+
+  .card img.logo {
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .boxinfo {
+    font-size: 8px;
+  }
+
+  .date {
+
+    font-size: 12px;
+  }
+
+
+}
