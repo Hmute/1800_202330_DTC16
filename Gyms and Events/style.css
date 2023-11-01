@@ -214,6 +214,11 @@ ul {
   color: white;
 }
 
+.gym-page {
+
+  margin-bottom: 100px;
+}
+
 @media (max-width: 576px) {
   .gym-info-tabs {
       padding: 0 5px; 
