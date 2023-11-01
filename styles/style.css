@@ -83,7 +83,11 @@
   padding-bottom: 12px;
   padding-left: 12px;
   padding-right: 12px;
+}
+
+.result-box{
   z-index: 9999;
+  position: relative;
 }
 
 .result-box ul li:hover{
