@@ -192,3 +192,55 @@ ul {
 .info-tab {
   background-color: #d9d9d9;
 }
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+
+
+@media (max-width: 576px) {
+  .gym-info-tabs {
+      padding: 0 5px; 
+      font-size: 0.8rem; 
+  }
+
+  .drop-in {
+    font-size: 1.0rem;
+  }
+
+  .drop-in-info {
+    font-size: 0.8rem;
+  }
+
+  .price {
+    font-size: 1.0rem;
+  }
+
+  .price-info {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .gym-info-tabs {
+      padding: 0 5px; 
+      font-size: 0.6rem; 
+  }
+  .drop-in {
+    font-size: 0.8rem;
+  }
+
+  .drop-in-info {
+    font-size: 0.6rem;
+  }
+
+  .price {
+    font-size: 0.8rem;
+  }
+
+  .price-info {
+    font-size: 0.6rem;
+  }
+}
