@@ -1,8 +1,7 @@
-# Project Title
+# Simply Active
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+Our Team (DTC-16) is developing an app to help sports communities connect faster by centralizing information about the sport activity they choose 
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
