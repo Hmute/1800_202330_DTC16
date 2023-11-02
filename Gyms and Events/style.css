@@ -242,7 +242,7 @@ ul {
   }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 340px) {
   .gym-info-tabs {
       padding: 0 5px; 
       font-size: 0.6rem; 
@@ -261,5 +261,10 @@ ul {
 
   .price-info {
     font-size: 0.6rem;
+  }
+
+  .gym-page {
+
+    margin-bottom: 160px;
   }
 }
