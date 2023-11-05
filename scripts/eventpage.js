@@ -25,6 +25,7 @@ function clickgymbtn() {
 }
 
 function clickeventsbtn() {
+    event.preventDefault()
     eventCard = document.querySelectorAll(".eventcard")
     eventCard.forEach(function(card) {
         card.style.display = "block"        
