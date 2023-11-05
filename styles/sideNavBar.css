@@ -1,0 +1,68 @@
+body {
+    background: #eee;
+}
+
+#side_nav {
+    background-color: black;
+    min-width: 300px;
+    max-width: 210px;
+}
+
+.container_for_sideNavBar {
+    min-height: 120vh;
+
+}
+
+#profile_img {
+    border: 1px solid;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+hr.h-color {
+    background: #eee;
+}
+
+.sidebar li {
+    list-style-type: none;
+}
+
+.sidebar li.active {
+    background: #000000;
+    border-radius: 8px;
+}
+
+/* .sidebar li.active a, .sidebar li.active a:hover { 
+    color: black;
+} */
+
+
+.sidebar li.active a {
+    background: white;
+    color: black;
+    border-radius: 8px;
+}
+
+.sidebar li a:hover {
+    background: white;
+    color: black;
+    border-radius: 8px;
+}
+
+.sidebar li a {
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    #side_nav {
+        min-width: 190px;
+        max-width: 210px;
+    }
+
+}
