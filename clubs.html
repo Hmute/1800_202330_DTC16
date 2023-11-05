@@ -74,123 +74,42 @@
         </div>
 
     </div>
-    <!-- Next Part -->
 
-    <div class="container mt-5">
-        <div class="thebox card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
+    <!-- Body-->
 
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
+    <!-- Add this inside the body of your HTML, where you want the button to appear -->
+    <div class="text-center mt-4">
+        <button onclick="openCreateClubModal()" class="btn btn-primary">Create New Club <i
+                class="fas fa-plus"></i></button>
+    </div>
+
+
+    <!-- Add this inside the body of your HTML, after the button -->
+    <div id="createClubModal" class="modal fade" tabindex="-1" aria-labelledby="createClubModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createClubModalLabel">Create New Club</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="clubName" class="form-label">Club Name</label>
+                            <input type="text" class="form-control" id="clubName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="clubDescription" class="form-label">Club Description</label>
+                            <textarea class="form-control" id="clubDescription" rows="3"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="saveNewClub()">Save Club</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    </div>
-    <!-- Next Part Sliding Cards -->
-
-    <div class="slidingCardsDiv"></div>
-
-    <!-- End of Sliding Cards -->
-
-    <div class="container mt-5">
-        <div class="thebox card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
-
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="thebox card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
-
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="thebox card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
-
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!-- Next Part Sliding Cards -->
+    <!-- footer -->
     <footer class="bg-light text-center text-white fixed-bottom">
         <div class="container p-4 pb-0">
             <section class="mb-4">
