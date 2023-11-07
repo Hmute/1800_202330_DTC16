@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sliding Cards</title>
+    <!-- Bootstrap Library CSS CDN go here -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.21.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Boostrap Library JS CDN  go here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    
+    <!-- Other libraries go here -->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
 </head>
 <body>
@@ -15,24 +46,23 @@
                     <tr class="">
                         <td>
                             <!-- This is the Cards .card-container -->
-                            <div class="card-container" style="display: flex; flex-direction: row;">
+                            <div class="card-container" style="display: flex; flex-direction: row;" >
                                 <!-- Card-1 -->
-                                <div class="card m-1" style="width: 25rem; height: 300px;">
+                                <div class="card m-1" style="width: 25rem; height: 300px;" id="individual_card">
                                     <div class="card-header">Basketball</div>
                                     <img class="card-img-top pt-3" src="./images/basketball.png" alt="Basketball Pic"
                                         style="width: 100px; height: 100px; margin: auto;">
                                     <div class="card-body">
-                                        <h3 class="card-title">Title: Basketball</h3>
-                                        <h5 class="card-subtitle">Subtitle: Cool Sport</h5>
-                                        <p class="card-text text-wrap">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                            elit. Necessitatibus quasi, blanditiis reiciendis aperiam sunt temporibus
-                                            perspiciatis. Voluptate dolor dolore dolorum.</p>
+                                        <h3 class="card-title" id="Title"></h3>
+                                        <h5 class="card-subtitle" id="Sport"></h5>
+                                        <h5 class="card-subtitle" id="Parking"></h5>
+                                        <p class="card-text text-wrap" id="Information"></p>
                                     </div>
-                                    <div class="card-footer"><button type="button" class="btn btn-outline-success">View
+                                    <div class="card-footer" id=""><button type="button" class="btn btn-outline-success">View
                                             More</button></div>
                                 </div>
                                 <!-- Card-2 -->
-                                <div class="card m-1" style="width: 25rem; height: 300px;">
+                                <!-- <div class="card m-1" style="width: 25rem; height: 300px;">
                                     <div class="card-header">Volleyball</div>
                                     <img class="card-img-top pt-3" src="./images/volleyball-ball.png" alt="Volleyball Pic"
                                         style="width: 100px; height: 100px; margin: auto;">
@@ -46,9 +76,9 @@
                                     </div>
                                     <div class="card-footer"><button type="button" class="btn btn-outline-success">View
                                             More</button></div>
-                                </div>
+                                </div> -->
                                 <!-- Card-3 -->
-                                <div class="card m-1" style="width: 25rem; height: 300px;">
+                                <!-- <div class="card m-1" style="width: 25rem; height: 300px;">
                                     <div class="card-header">Badminton</div>
                                     <img class="card-img-top pt-3" src="./images/shuttlecock.png" alt="Badminton Pic"
                                         style="width: 100px; height: 100px; margin: auto;">
@@ -62,9 +92,9 @@
                                     </div>
                                     <div class="card-footer"><button type="button" class="btn btn-outline-success">View
                                             More</button></div>
-                                </div>
+                                </div> -->
                                 <!-- Card-4 -->
-                                <div class="card m-1" style="width: 25rem; height: 300px;">
+                                <!-- <div class="card m-1" style="width: 25rem; height: 300px;">
                                     <div class="card-header">Soccer</div>
                                     <img class="card-img-top pt-3" src="./images/soccer.png" alt="Soccer Pic"
                                         style="width: 100px; height: 100px; margin: auto;">
@@ -78,9 +108,9 @@
                                     </div>
                                     <div class="card-footer"><button type="button" class="btn btn-outline-success">View
                                             More</button></div>
-                                </div>
+                                </div> -->
                                 <!-- Card-5 -->
-                                <div class="card m-1" style="width: 25rem; height: 300px;">
+                                <!-- <div class="card m-1" style="width: 25rem; height: 300px;">
                                     <div class="card-header">Hockey</div>
                                     <img class="card-img-top pt-3" src="./images/hockey.png" alt="Hockey Pic"
                                         style="width: 100px; height: 100px; margin: auto;">
@@ -94,9 +124,9 @@
                                     </div>
                                     <div class="card-footer"><button type="button" class="btn btn-outline-success">View
                                             More</button></div>
-                                </div>
+                                </div> -->
                                 <!-- Card-6 -->
-                                <div class="card m-1" style="width: 25rem; height: 300px;">
+                                <!-- <div class="card m-1" style="width: 25rem; height: 300px;">
                                     <div class="card-header">Bowling</div>
                                     <img class="card-img-top pt-3" src="./images/bowling-ball.png" alt="Hockey Pic"
                                         style="width: 100px; height: 100px; margin: auto;">
@@ -110,7 +140,7 @@
                                     </div>
                                     <div class="card-footer"><button type="button" class="btn btn-outline-success">View
                                             More</button></div>
-                                </div>
+                                </div> -->
                                 <!-- End of Cards inside the card-deck container -->
                             </div>
                             <!-- END of Card-deck container -->
@@ -121,8 +151,17 @@
         </div>
     </div>
 
+
+
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    <script src="./scripts/sliding_cards_loader.js"></script>
 </body>
 </html>
