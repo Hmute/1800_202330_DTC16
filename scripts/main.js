@@ -1,6 +1,6 @@
 function createClubs() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var hikesRef = db.collection("Clubs");
+    var ClubsRef = db.collection("Clubs");
 
     ClubsRef.add({
         Club_name: "Fuego",
@@ -10,7 +10,6 @@ function createClubs() {
         Club_Sport: "Football",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
-
     ClubsRef.add({
         Club_name: "Gorditos FC",
         Admin: "Admin Villegas",
@@ -38,19 +37,4 @@ function createClubs() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 
-}
-
-//-----------------------------------------------
-// Create a "max" number of hike document objects
-//-----------------------------------------------
-function writeClubsLoop(max) {
-    //define a variable for the collection you want to create in Firestore to populate data
-    var hikesRef = db.collection("Clubs");
-    for (i = 1; i <= max; i++) {
-        hikesRef.add({ //add to database, autogen ID
-            name: "Clubs" + i,
-            details: "One of the Many Clubs" + i,
-            last_updated: firebase.firestore.FieldValue.serverTimestamp()
-        })
-    }
 }
