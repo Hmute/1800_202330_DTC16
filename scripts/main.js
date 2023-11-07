@@ -38,3 +38,32 @@ function createClubs() {
     });
 
 }
+
+function createGym() {
+    //define a variable for the collection you want to create in Firestore to populate data
+    var GymsRef = db.collection("Gyms");
+
+    GymsRef.add({
+        Gym_name: "Gymnasium",
+        Rating: "9.0",
+        Schedule: "Mon-Sat",
+        Information: "best gym in Burnaby, come here to get the best body possible",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+    });
+    GymsRef.add({
+        Gym_name: "Bikini Bottom Gym",
+        Rating: "9.0",
+        Schedule: "Mon-Sun",
+        Information: "Come workout with Larry the lobster.",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+    });
+
+    GymsRef.add({
+        Gym_name: "DT BCIT gym",
+        Rating: "6.0",
+        Schedule: "Mon-Fri",
+        Information: "The gym is still under construction, but visit us soon",
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+    });
+
+} 
