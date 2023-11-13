@@ -77,37 +77,14 @@
 
     <!-- Body-->
 
-    <!-- Add this inside the body of your HTML, where you want the button to appear -->
-    <div class="text-center mt-4">
-        <button onclick="openCreateClubModal()" class="btn btn-primary">Create New Club <i
-                class="fas fa-plus"></i></button>
+    <div class="container mt-4" id="clubContainer">
+        <!-- This is where each club instance will be dynamically added -->
     </div>
 
 
-    <!-- Add this inside the body of your HTML, after the button -->
-    <div id="createClubModal" class="modal fade" tabindex="-1" aria-labelledby="createClubModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="createClubModalLabel">Create New Club</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="clubName" class="form-label">Club Name</label>
-                            <input type="text" class="form-control" id="clubName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="clubDescription" class="form-label">Club Description</label>
-                            <textarea class="form-control" id="clubDescription" rows="3"></textarea>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="saveNewClub()">Save Club</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <!-- Add this inside the body of your HTML, where you want the button to appear -->
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="sentTo()">Create New Club <i class="fas fa-plus"></i></button>
     </div>
 
 
@@ -148,6 +125,7 @@
     <script src="./scripts/sliding_cards_loader.js"></script>
     <script src="./scripts/sideNavBarLoader.js"></script>
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/club.js"></script>
 </body>
 
 </html>

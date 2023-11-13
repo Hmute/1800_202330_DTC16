@@ -66,4 +66,5 @@ function createGym() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 
-} 
+}
+
