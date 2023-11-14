@@ -13,6 +13,7 @@ function populateUserInfo() {
                     var userName = userDoc.data().name;
                     var userSchool = userDoc.data().school;
                     var userCity = userDoc.data().city;
+                    var userSport = userDoc.data().sport;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -24,6 +25,10 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
+                    if (userSport != null) {
+                        document.getElementById("sportInput").value = userSport;
+                    }
+
                 })
         } else {
             // No user is signed in.
@@ -61,3 +66,5 @@ function saveUserInfo() {
     //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
 }
+
+document.getElementById("homeBtn").addEventListener("click", () => window.location.href = "index.html")
