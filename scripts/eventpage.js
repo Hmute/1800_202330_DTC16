@@ -1,24 +1,3 @@
-//----------------------------------------
-//  Your web app's Firebase configuration
-//----------------------------------------
-var firebaseConfig = {
-    apiKey: "AIzaSyAwEwov9jM25EpVg7-4jDfCXbfaznqnKl8",
-    authDomain: "simplyactive.firebaseapp.com",
-    projectId: "simplyactive",
-    storageBucket: "simplyactive.appspot.com",
-    messagingSenderId: "82493903519",
-    appId: "1:82493903519:web:e3409147f56bf9017608aa"
-};
-
-// //--------------------------------------------
-// // initialize the Firebase app
-// // initialize Firestore database if using it
-// //--------------------------------------------
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-
-
 eventsButton = document.getElementsByClassName("eventsbtn")[0]
 eventsButton.addEventListener("click", clickeventsbtn)
 
@@ -104,6 +83,7 @@ function createEventCard(collectionId) {
                 newCard = document.querySelector(".eventcard").cloneNode(true);
             }
 
+            newCard.setAttribute("data-document-id", docData.id)
             newCard.querySelector(".box-title").innerHTML = sport;
             newCard.querySelector(".date").innerHTML = date;
             newCard.querySelector(".boxinfo").innerHTML = information;
@@ -123,7 +103,6 @@ function createGymCard(collectionId) {
             var title = docData.data().Gym_name;
             var rating = docData.data().Rating;
             var information = docData.data().Information;
-
             let newCard;
 
             if (counter === 0) {
@@ -131,13 +110,13 @@ function createGymCard(collectionId) {
             } else {
                 newCard = document.querySelector(".gymcard").cloneNode(true);
             }
-
+            newCard.setAttribute("data-document-id", docData.id);
             newCard.querySelector(".box-title").innerHTML = title;
             newCard.querySelector(".starnumber").innerHTML = rating;
             newCard.querySelector(".boxinfo").innerHTML = information;
 
             document.body.appendChild(newCard);
-            counter++;  
+            counter++;
         });
     });
 }
@@ -150,21 +129,47 @@ createGymCard("Gyms")
 document.addEventListener("click", function (event) {
     const heartIcon = event.target.closest(".fa-heart");
 
-    if (heartIcon) {
+    if (heartIcon.classList.contains("far")) {
+        // The heart is currently empty, so fill it
+        heartIcon.classList.remove("far");
+        heartIcon.classList.add("fas");
+    
+        const eventCard = heartIcon.closest(".eventcard[data-document-id]");
+        if(eventCard){
+            const user = firebase.auth().currentUser;
 
-        if (heartIcon.classList.contains("far")) {
-            // The heart is currently empty, so fill it
-            heartIcon.classList.remove("far");
-            heartIcon.classList.add("fas");
+            var documentId = eventCard.getAttribute("data-document-id")
+            db.collection("users").get().then(userDocs =>{
+                userDocs.forEach(userDocsData =>{
+                    if(userDocsData.data().name == user.displayName){
+                        db.collection("Events").doc(documentId).get().then(docData =>{
+                            var userFavorites = db.collection("users").doc(userDocsData.id).collection("Favorites")
 
-        } else {
-            // The heart is currently filled, so empty it
-            heartIcon.classList.remove("fas");
-            heartIcon.classList.add("far");
+                            userFavorites.add({
+                                sport: docData.data().sport,
+                                date: docData.data().date,
+                                information: docData.data().information,
+                                title: docData.data().title,
+                                last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+                            })
+                        })
+                    }
+                })
+            })
 
         }
+
+    }else{
+        heartIcon.classList.remove("fas");
+        heartIcon.classList.add("far");
+        
+        
     }
 });
+
+// function stayFilled(){
+
+// }
 
 
 
