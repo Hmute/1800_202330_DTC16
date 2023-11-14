@@ -1,6 +1,6 @@
-// function createCards() {
-//   const user = firebase.auth().currentUser;
-//   console.log(user.uid)
+function createCards() {
+  const user = firebase.auth().currentUser;
+  console.log(user.uid)
 
-// }
+}
 
