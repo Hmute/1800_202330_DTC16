@@ -10,16 +10,16 @@ gymButton.addEventListener("click", clickgymbtn)
 function clickgymbtn() {
     event.preventDefault()
     gymCard = document.querySelectorAll(".gymcard")
-    gymCard.forEach(function(card) {
+    gymCard.forEach(function (card) {
         card.style.display = "block"
         card.classList.remove("d-none")
-                
+
     });
 
     eventCard = document.querySelectorAll(".eventcard")
-    eventCard.forEach(function(card) {
+    eventCard.forEach(function (card) {
         card.style.display = "none"
-        
+
     });
 
 }
@@ -27,15 +27,17 @@ function clickgymbtn() {
 function clickeventsbtn() {
     event.preventDefault()
     eventCard = document.querySelectorAll(".eventcard")
-    eventCard.forEach(function(card) {
-        card.style.display = "block"        
+    eventCard.forEach(function (card) {
+        card.style.display = "block"
     });
 
     gymCard = document.querySelectorAll(".gymcard")
-    gymCard.forEach(function(card) {
+    gymCard.forEach(function (card) {
         card.style.display = "none"
-        
+
     });
 
 
 }
+
+

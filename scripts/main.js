@@ -47,7 +47,7 @@ function createGym() {
         Gym_name: "Gymnasium",
         Rating: "9.0",
         Schedule: "Mon-Sat",
-        Information: "best gym in Burnaby, come here to get the best body possible",
+        Information: "The best gym in Burnaby, visit us to get the body you've always dreamt of!",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
     GymsRef.add({
@@ -62,9 +62,44 @@ function createGym() {
         Gym_name: "DT BCIT gym",
         Rating: "6.0",
         Schedule: "Mon-Fri",
-        Information: "The gym is still under construction, but visit us soon",
+        Information: "The gym is still under construction, but visit us soon!",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 
 }
+
+
+function displayCardsDynamically(collection) {
+    let cardTemplate = document.getElementById("gymCardTemplate");
+
+    db.collection(collection).get()
+        .then(allGyms => {
+            //var i = 1;  //Optional: if you want to have a unique ID for each hike
+            allGyms.forEach(doc => { //iterate thru each doc
+                var title = doc.data().Gym_name;       // get value of the "name" key
+                var rating = doc.data().Rating;
+                var details = doc.data().Information;  
+                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+
+                //update title and text and image
+                newcard.getElementsByClassName('box-title').innerHTML = title;
+                newcard.getElementsByClassName('starnumber').innerHTML = rating;
+                newcard.getElementsByClassName('boxinfo').innerHTML = details;
+
+                //Optional: give unique ids to all elements for future use
+                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+                //attach to gallery, Example: "hikes-go-here"
+
+                //i++;   //Optional: iterate variable to serve as unique ID
+            })
+        })
+}
+
+displayCardsDynamically("Gyms");  //input param is the name of the collection
+
+
+
 
