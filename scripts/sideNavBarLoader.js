@@ -1,10 +1,16 @@
 $(function () {
-    $(".sideNavBarDiv").load("sideNavBar.html");
+    $("#sideBar").load("sideNavBar.html");
 });
 
-function eventSideNavBar() {
-    const sidebar = document.getElementById("side_nav");
-    if (sidebar.style.display === "none") {
+// function loadSideNavBar() {
+//     console.log($('.sideNavBarDiv').load('sideNavBar.html'));
+// }
+
+// loadSideNavBar();
+
+function eventSideBar() {
+    const sidebar = document.getElementById("sideBar");
+    if (sidebar.style.display == "none") {
         sidebar.style.display = "block";
         // transition for sidebar
         // sidebar.style.transition = "width 2s";
@@ -13,3 +19,9 @@ function eventSideNavBar() {
     }
 
 }
+
+
+const profPic = document.getElementById("profile");
+profPic.addEventListener("click", eventSideBar);
+
+
