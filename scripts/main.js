@@ -44,25 +44,31 @@ function createGym() {
     var GymsRef = db.collection("Gyms");
 
     GymsRef.add({
-        Gym_name: "Gymnasium",
+        Gym_name: "Fortunes Gym",
         Rating: "9.0",
-        Schedule: "Mon-Sat",
+        Schedule: "Monday:  7:00am - 10:00pm\nTuesday:  7:00am - 10:00pm\nWednesday:  7:00am - 10:00pm\nThursday:  7:00am - 10:00pm\nFriday:  7:00am - 9:00pm\nSaturday:  8:00am - 8:00pm\nSunday:  Off",
         Information: "The best gym in Burnaby, visit us to get the body you've always dreamt of!",
+        dropin_info: "Adults: $8.99/hour\nStudents: $5.99/hour",
+        gym_price_info: "Adults: $99.99 for 6 months\nStudents: $69.99 for 6 months",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
     GymsRef.add({
         Gym_name: "Bikini Bottom Gym",
         Rating: "9.0",
-        Schedule: "Mon-Sun",
+        Schedule: "Monday:  7:00am - 10:00pm\nTuesday:  7:00am - 10:00pm\nWednesday:  7:00am - 10:00pm\nThursday:  7:00am - 10:00pm\nFriday:  7:00am - 9:00pm\nSaturday:  OffSunday:  Off",
         Information: "Come workout with Larry the lobster.",
+        dropin_info: "Adults: $6.99/hour\nStudents: $3.99/hour",
+        gym_price_info: "Adults: $79.99 for 6 months\nStudents: $49.99 for 6 months",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 
     GymsRef.add({
-        Gym_name: "DT BCIT gym",
+        Gym_name: "DT BCIT Gym",
         Rating: "6.0",
-        Schedule: "Mon-Fri",
+        Schedule: "TBA",
         Information: "The gym is still under construction, but visit us soon!",
+        dropin_info: "BCIT ID required to access the gym",
+        gym_price_info: "Free for students.",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 

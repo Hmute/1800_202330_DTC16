@@ -42,6 +42,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Link to styles of your own -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/style.css">
 
 
@@ -86,118 +87,37 @@
     </div>
     <!-- Next Part -->
 
-    <div class="container mt-5" >
-        <div class="thebox card" style="z-index: -10">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
+    <div class="container">
+        <br>
+        <h1>Review for <span id="gymName"> Gym Name</span></h1>
+        <br>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your name</label>
+                <input type="text" class="form-control" id="title" placeholder="Name">
+            </div><br>
+            <div class="form-group">
+                <div class="card-body">
+                    <p>Rate your overall experience:</p>
+                    <span class="material-icons star" id="star1">star_outline</span>
+                    <span class="material-icons star" id="star2">star_outline</span>
+                    <span class="material-icons star" id="star3">star_outline</span>
+                    <span class="material-icons star" id="star4">star_outline</span>
+                    <span class="material-icons star" id="star5">star_outline</span>
+                </div>
+   
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">What was your overall experience with us?</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
 
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-lg btn-dark pull-right"
+                        onclick="writeReview()">Submit</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-
-    </div>
-    <!-- Next Part Sliding Cards - Richard - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-    <div class="swipeCardsDiv" style="z-index: -100;"></div>
-
-    <!-- End of Sliding Cards - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-    <div class="container mt-5">
-        <div class="thebox card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
-
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="thebox card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
-
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="thebox card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="box-title">
-                            Upcoming
-                        </h3>
-
-                        <p class="boxinfo">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                            accusantium
-                            est unde necessitatibus vero itaque ex.
-                        </p>
-                    </div>
-                    <div class="x col-6 d-flex flex-column align-items-center">
-                        <p class="date">
-                            Date and Time
-                        </p>
-                        <img src="images/Contentpic.png" alt="" width="100" class="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 
 
     <!-- Next Part Sliding Cards -->
@@ -241,6 +161,11 @@
     <!-- Javascript Loader File for Sliding Cards -->
     <script src="./scripts/sideNavBarLoader.js"></script> <!-- -Richard-->
     <script src="./scripts/swipeCard.js"></script> <!-- -Richard-->
+    <script src="gymreview.html"></script>
+    <script src="main.js"></script>
+    <script src="scripts/gympage.js"></script>
+    <script src="scripts/eventpage.js"></script>
+    <script src="scripts/gymreview.js"></script>
 </body>
 
 </html>

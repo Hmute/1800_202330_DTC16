@@ -1,5 +1,5 @@
 theLocation = document.getElementsByClassName("location")[0]
-theLocation.addEventListener("click",locationStuff)
+theLocation.addEventListener("click", locationStuff)
 
 theInformation = document.getElementsByClassName("information")[0]
 theInformation.addEventListener("click", informationStuff)
@@ -13,21 +13,21 @@ function locationStuff() {
     locationbtn()
 
     locationDescription = document.querySelectorAll(".gym-location")
-    locationDescription.forEach(function(location){
+    locationDescription.forEach(function (location) {
         location.style.display = "block"
         location.classList.remove("d-none")
 
     })
 
     scheduleDescription = document.querySelectorAll(".gym-schedule")
-    scheduleDescription.forEach(function(schedule){
+    scheduleDescription.forEach(function (schedule) {
 
         schedule.style.display = "none"
 
     })
 
     infoDescription = document.querySelectorAll(".gym-info")
-    infoDescription.forEach(function(info){
+    infoDescription.forEach(function (info) {
 
         info.style.display = "none"
 
@@ -37,7 +37,7 @@ function locationStuff() {
 function locationbtn() {
 
     navItems = document.querySelectorAll(".gym-info-tabs .nav-link")
-    navItems.forEach(function(navItem){
+    navItems.forEach(function (navItem) {
 
         event.preventDefault()
 
@@ -56,22 +56,22 @@ function informationStuff() {
     informationbtn()
 
     infoDescription = document.querySelectorAll(".gym-info")
-    infoDescription.forEach(function(info){
+    infoDescription.forEach(function (info) {
 
-    info.style.display = "block"
-    
+        info.style.display = "block"
+
 
     })
 
     locationDescription = document.querySelectorAll(".gym-location")
-    locationDescription.forEach(function(location){
+    locationDescription.forEach(function (location) {
 
         location.style.display = "none"
 
     })
 
     scheduleDescription = document.querySelectorAll(".gym-schedule")
-    scheduleDescription.forEach(function(schedule){
+    scheduleDescription.forEach(function (schedule) {
 
         schedule.style.display = "none"
 
@@ -85,7 +85,7 @@ function informationbtn() {
 
     navItems = document.querySelectorAll(".gym-info-tabs .nav-link")
 
-    navItems.forEach(function(navItem) {
+    navItems.forEach(function (navItem) {
 
         navItem.classList.remove("active")
     })
@@ -96,12 +96,12 @@ function informationbtn() {
 }
 
 
-function schedulebtn(){
+function schedulebtn() {
 
     event.preventDefault()
 
     navItems = document.querySelectorAll(".gym-info-tabs .nav-link")
-    navItems.forEach(function(navItem){
+    navItems.forEach(function (navItem) {
 
         navItem.classList.remove("active")
     })
@@ -116,26 +116,62 @@ function scheduleStuff() {
     schedulebtn()
 
     scheduleDescription = document.querySelectorAll(".gym-schedule")
-    scheduleDescription.forEach(function(schedule){
+    scheduleDescription.forEach(function (schedule) {
 
-    schedule.style.display = "block"
-    schedule.classList.remove("d-none")
+        schedule.style.display = "block"
+        schedule.classList.remove("d-none")
 
 
     })
 
     infoDescription = document.querySelectorAll(".gym-info")
-    infoDescription.forEach(function(info){
+    infoDescription.forEach(function (info) {
 
         info.style.display = "none"
 
     })
 
     locationDescription = document.querySelectorAll(".gym-location")
-    locationDescription.forEach(function(location){
+    locationDescription.forEach(function (location) {
 
         location.style.display = "none"
 
     })
 
 }
+
+function displayGymInfo() {
+    let params = new URL(window.location.href); //get URL of search bar
+    let ID = params.searchParams.get("docID"); //get value for key "id"
+    console.log(ID);
+
+    // doublecheck: is your collection called "Reviews" or "reviews"?
+    db.collection("Gyms")
+        .doc(ID)
+        .get()
+        .then(doc => {
+            gymName = doc.data().Gym_name;
+            dropIn = doc.data().dropin_info;
+            gymPrice = doc.data().gym_price_info;
+            gymSchedule = doc.data().Schedule;
+
+            // only populate title, and image
+            document.getElementById("the-gym-name").innerHTML = gymName;
+            document.getElementById("drop-in-info").innerHTML = dropIn;
+            document.getElementById("price-info").innerHTML = gymPrice;
+            document.getElementById("the-gym-schedule").innerHTML = gymSchedule
+
+        });
+}
+displayGymInfo();
+
+
+
+function saveGymDocumentIDAndRedirect() {
+    let params = new URL(window.location.href) //get the url from the search bar
+    let ID = params.searchParams.get("docID");
+    localStorage.setItem('gymID', ID);
+    window.location.href = 'gymreview.html';
+
+}
+
