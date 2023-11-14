@@ -49,7 +49,8 @@
 
 <body>
 
-  <!-- Top Part -->
+
+  <!-- Top Part ----------------------------------------------------------------------------Richard -->
   <div class="container-fluid py-3 fixed-height">
     <div class="row align-items-center">
       <div class="col-8">
@@ -61,7 +62,10 @@
         </div>
       </div>
       <div class="col-auto ml-auto">
-        <i class="fa fa-user-circle" style="font-size: 48px;"></i>
+        <!-- This Icon will load the sideNavBar -->
+        <button onclick="eventSideNavBar()" style="position: relative; z-index: 99;" class="sideNavBarDiv">
+          <i class="fa fa-user-circle" style="font-size: 48px; display: block;"></i>
+        </button>
       </div>
     </div>
     <div class="container-fluid bg-white rounded-4 py-2 result-box" style="display: none;">
@@ -71,31 +75,20 @@
 
   </div>
   <!-- Next Part -->
-  <!-- Buttons for event and gym  -->
-  <div class="container-fluid bg-dark">
-    <div class="row">
-      <button class="eventsbtn btn event-button col-6 py-2">Events</button>
-      <button class="gymbtn btn event-button col-6 py-2">Gyms</button>
-    </div>
-  </div>
-  <!-- End of buttons -->
 
-  <!-- Next Part -->
-
-  <div class="eventcard container mt-5">
+  <div class="container mt-5">
     <div class="thebox card">
       <div class="card-body">
         <div class="row">
           <div class="col-6">
-            <div class="d-flex align-items-start">
-              <h3 class="box-title">
-                Upcoming
-              </h3>
-              <i class="far fa-heart fa-2x ml-3"></i>
-            </div>
+            <h3 class="box-title">
+              Upcoming
+            </h3>
+
             <p class="boxinfo">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-              accusantium est unde necessitatibus vero itaque ex.
+              accusantium
+              est unde necessitatibus vero itaque ex.
             </p>
           </div>
           <div class="x col-6 d-flex flex-column align-items-center">
@@ -109,46 +102,9 @@
     </div>
   </div>
 
+  
 
-
-  <!-- Ben's Part -->
-  <div class="gymcard container mt-5 d-none">
-    <div class="gym card">
-      <div class="card-body">
-        <div class="row">
-          <div class="x col-6 d-flex flex-column align-items-center">
-            <img src="/images/gym-logo.png" alt="" width="100" class="logo">
-          </div>
-          <div class="col-6">
-            <div class="row">
-              <div class="col d-flex">
-                <h3 class="box-title">
-                  Gym
-                </h3>
-                <i class="far fa-heart fa-2x ml-3"></i>
-              </div>
-              <div class="col d-flex">
-                <i class="fa fa-star star d-flex" aria-hidden="true">
-                  <p class="starnumber mx-1">9.9</p>
-                </i>
-              </div>
-            </div>
-            <p class="boxinfo">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione, accusantium
-              est unde necessitatibus vero itaque ex.
-            </p>
-            <a class="btn btn-dark card-href">Read more ...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <!-- Next Part Sliding Cards -->
+ 
   <footer class="bg-light text-center text-white fixed-bottom">
     <div class="container p-4 pb-0">
       <section class="mb-4">
@@ -180,17 +136,13 @@
   <!---------------------------------------------->
 
   <!-- Link to scripts of your own -->
-  <script src="/scripts/eventpage.js"></script>
   <script src="./scripts/script.js"></script>
-  <!-- <script src="./scripts/firebaseAPI_DTC16.js"></script> -->
+  <script src="./scripts/firebaseAPI_DTC16.js"></script>
   <script src="./scripts/authentication.js"></script>
   <script src="scripts/autocomplete.js"></script>
   <!-- Javascript Loader File for Sliding Cards -->
-  <script src="./scripts/sliding_cards_loader.js"></script>
-  <script src="./scripts/sideNavBarLoader.js"></script>
-  <script src="./scripts/main.js"></script>
-  <script src="/scripts/firebaseAPI_DTC16.js"></script>
-
+  <script src="./scripts/sideNavBarLoader.js"></script> <!-- -Richard-->
+  <script src="./scripts/swipeCard.js"></script> <!-- -Richard-->
 </body>
 
 </html>
