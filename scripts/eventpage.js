@@ -122,7 +122,8 @@ function createGymCard(collectionId) {
         documents.forEach(docData => {
             var title = docData.data().Gym_name;
             var rating = docData.data().Rating;
-            var information = docData.data().Information;
+            var information = docData.data().Information
+            var docID = docData.id;
 
             let newCard;
 
@@ -135,7 +136,7 @@ function createGymCard(collectionId) {
             newCard.querySelector(".box-title").innerHTML = title;
             newCard.querySelector(".starnumber").innerHTML = rating;
             newCard.querySelector(".boxinfo").innerHTML = information;
-
+            newCard.querySelector('a').href = "gympage.html?docID="+docID
             document.body.appendChild(newCard);
             counter++;  
         });
