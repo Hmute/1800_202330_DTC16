@@ -2,6 +2,8 @@ $(function () {
     $("#sideBar").load("sideNavBar.html");
 });
 
+
+
 function eventSideBar() {
     const sidebar = document.getElementById("sideBar");
     if (sidebar.style.display == "none") {
@@ -15,7 +17,7 @@ function eventSideBar() {
 }
 
 
-const profPic = document.getElementById("profile");
+let profPic = document.getElementById("profile");
 profPic.addEventListener("click", eventSideBar);
 
 function insertNameFromFirestore() {
