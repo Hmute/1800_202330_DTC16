@@ -1,4 +1,6 @@
-var currentUser;               //points to the document of the user who is logged in
+//initialize current user variable
+var currentUser;               
+
 function populateUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -14,7 +16,6 @@ function populateUserInfo() {
                     var userSchool = userDoc.data().school;
                     var userCity = userDoc.data().city;
                     var userSport = userDoc.data().sport;
-
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
@@ -28,26 +29,22 @@ function populateUserInfo() {
                     if (userSport != null) {
                         document.getElementById("sportInput").value = userSport;
                     }
-
                 })
         } else {
-            // No user is signed in.
+            // NO one home
             console.log("No user is signed in");
         }
     });
 }
 
-//call the function to run it 
 populateUserInfo();
 
 function editUserInfo() {
-    //Enable the form fields
+    //allow editing
     document.getElementById('personalInfoFields').disabled = false;
 }
 
 function saveUserInfo() {
-    //enter code here
-
     //a) get user entered values
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
     userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
