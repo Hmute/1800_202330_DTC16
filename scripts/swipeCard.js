@@ -16,7 +16,7 @@ function insertNameFromFirestore() {
                 var userName = userDoc.data().name;
                 console.log(userName);
                 //$("#name-goes-here").text(userName); // jQuery
-                document.getElementById("name-goes-here").innerText = userName;
+                document.getElementById("name").innerText = userName;
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in
