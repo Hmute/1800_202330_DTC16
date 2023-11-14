@@ -203,7 +203,7 @@ ul{
   height: auto;
 }
 
-.information, .location, .schedule{
+.information, .location, .schedule, .reviews{
   color: black;
 }
 
@@ -214,6 +214,10 @@ ul{
 
 .schedule:hover {
 
+  color: white;
+}
+
+.reviews:hover {
   color: white;
 }
 
