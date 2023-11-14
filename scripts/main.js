@@ -69,37 +69,5 @@ function createGym() {
 }
 
 
-function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("gymCardTemplate");
-
-    db.collection(collection).get()
-        .then(allGyms => {
-            //var i = 1;  //Optional: if you want to have a unique ID for each hike
-            allGyms.forEach(doc => { //iterate thru each doc
-                var title = doc.data().Gym_name;       // get value of the "name" key
-                var rating = doc.data().Rating;
-                var details = doc.data().Information;  
-                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
-
-                //update title and text and image
-                newcard.querySelector('.box-title').innerHTML = title;
-                newcard.querySelector('.starnumber').innerHTML = rating;
-                newcard.querySelector('.boxinfo').innerHTML = details;
-
-                //Optional: give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-                //attach to gallery, Example: "hikes-go-here"
-
-                //i++;   //Optional: iterate variable to serve as unique ID
-            })
-        })
-}
-
-displayCardsDynamically("Gyms");  //input param is the name of the collection
-
-
 
 

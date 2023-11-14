@@ -114,7 +114,38 @@ function createEventCard(collectionId) {
     });
 }
 
+
+function createGymCard(collectionId) {
+    let counter = 0;
+
+    db.collection(collectionId).get().then(documents => {
+        documents.forEach(docData => {
+            var title = docData.data().Gym_name;
+            var rating = docData.data().Rating;
+            var information = docData.data().Information;
+
+            let newCard;
+
+            if (counter === 0) {
+                newCard = document.querySelector(".gymcard");
+            } else {
+                newCard = document.querySelector(".gymcard").cloneNode(true);
+            }
+
+            newCard.querySelector(".box-title").innerHTML = title;
+            newCard.querySelector(".starnumber").innerHTML = rating;
+            newCard.querySelector(".boxinfo").innerHTML = information;
+
+            document.body.appendChild(newCard);
+            counter++;  
+        });
+    });
+}
+
 createEventCard("Events")
+
+
+createGymCard("Gyms")
 
 document.addEventListener("click", function (event) {
     const heartIcon = event.target.closest(".fa-heart");
