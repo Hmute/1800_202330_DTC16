@@ -66,36 +66,6 @@ function writeEvents() {
     })
 }
 
-function createEventCard(collectionId) {
-    let counter = 0;
-
-    db.collection(collectionId).get().then(documents => {
-        documents.forEach(docData => {
-            var sport = docData.data().sport;
-            var date = docData.data().date;
-            var information = docData.data().information;
-
-            let newCard;
-
-            if (counter === 0) {
-                newCard = document.querySelector(".eventcard");
-            } else {
-                newCard = document.querySelector(".eventcard").cloneNode(true);
-            }
-
-            newCard.setAttribute("data-document-id", docData.id)
-            newCard.querySelector(".box-title").innerHTML = sport;
-            newCard.querySelector(".date").innerHTML = date;
-            newCard.querySelector(".boxinfo").innerHTML = information;
-
-            document.body.appendChild(newCard);
-            counter++;  
-        });
-    });
-}
-createEventCard("Events")
-
-
 function createGymCard(collectionId) {
     let counter = 0;
 
@@ -121,10 +91,55 @@ function createGymCard(collectionId) {
             counter++;
 
 
+
         });
     });
 }
 createGymCard("Gyms")
+
+function createEventCard(collectionId) {
+    let counter = 0;
+
+    db.collection(collectionId).get().then(documents => {
+        documents.forEach(docData => {
+            var sport = docData.data().sport;
+            var date = docData.data().date;
+            var information = docData.data().information;
+
+            let newCard;
+
+            if (counter === 0) {
+                newCard = document.querySelector(".eventcard");
+            } else {
+                newCard = document.querySelector(".eventcard").cloneNode(true);
+            }
+
+            newCard.setAttribute("data-document-id", docData.id)
+            newCard.querySelector(".box-title").innerHTML = sport;
+            newCard.querySelector(".date").innerHTML = date;
+            newCard.querySelector(".boxinfo").innerHTML = information;
+            newCard.querySelector(".far").id = "test-" + docData.id;
+
+            const user = firebase.auth().currentUser;
+            db.collection("users").doc(user.uid).get().then(userDoc => {
+                favoritesArray = userDoc.data().favorites;
+                if (favoritesArray.includes(docData.id)){
+                    newCard.querySelector('i').classList.remove("far")
+                    newCard.querySelector('i').classList.add("fas")
+                }
+            })
+
+
+            document.body.appendChild(newCard);
+            counter++;
+
+
+        });
+    });
+}
+createEventCard("Events")
+
+
 
 document.addEventListener("click", function (event) {
     const heartIcon = event.target.closest(".fa-heart");
@@ -150,9 +165,7 @@ document.addEventListener("click", function (event) {
                     favorites: firebase.firestore.FieldValue.arrayUnion(documentId)
                 }).then(() => {
                     console.log("Event added to favorites");
-                }).catch(error => {
-                    console.error("Error adding event to favorites:", error);
-                });
+                })
             }
         }
     } else {
@@ -176,9 +189,7 @@ document.addEventListener("click", function (event) {
                     favorites: firebase.firestore.FieldValue.arrayRemove(documentId)
                 }).then(() => {
                     console.log("Event removed from favorites");
-                }).catch(error => {
-                    console.error("Error removing event from favorites:", error);
-                });
+                })
             }
         }
     }
