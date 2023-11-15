@@ -49,7 +49,7 @@
 
 <body >
 
-    <!-- Top Part ----------------------------------------------------------------------------Richard -->
+    <!-- Top Part ------------------------------------------------------------------------------------>
     <div class="container-fluid py-4 fixed-height">
         <div class="row align-items-center">
             <div class="col-10">
@@ -68,6 +68,7 @@
                 <!-- </div> -->
             </div>
 
+            <!-- This is the pop up for the side bar ----Richard -->
             <div class="col-2">
                     <div class="row"><i class="fa fa-user-circle " style="font-size: 48px;" id="profile"
                     style="position: fixed; z-index: 99;"></i> 
@@ -83,7 +84,7 @@
         </div>
 
     </div>
-    <!-- Next Part -->
+    <!-- Next Part ---------------------------------------------------------------------------------->
 
     <div class="container mt-5">
         <div class="thebox card" style="z-index: -10">
@@ -114,7 +115,38 @@
     </div>
     <!-- Next Part Sliding Cards - Richard - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-    <div class="swipeCardsDiv" style="z-index: -100;"></div>
+    <div class="swipeCardsDiv" style="z-index: -100;">
+    </div>
+
+    <template id="swipingCards">
+        <div class="card m-1" style="width: 25rem; height: 300px ; z-index: 1;" id="individual_card">
+            <div class="card-header">Profile</div>
+            <img class="card-img-top pt-3" src="./images/basketball.png" alt="Basketball Pic"
+                style="width: 100px; height: 100px; margin: auto;">
+            <div class="card-body">
+                <h3 class="card-title" id="name"> </h3>
+                <h5 class="card-subtitle" id="Sport"></h5>
+                <h5 class="card-subtitle" id="Parking"></h5>
+                <p class="card-text text-wrap" id="Information"></p>
+            </div>
+            <div class="card-footer" id=""><button type="button" class="btn btn-outline-success">View
+                    More</button></div>
+        </div>
+    </template>
+<!-- 
+                            <div class="card m-1" style="width: 25rem; height: 300px ; z-index: 1;" id="individual_card">
+                                <div class="card-header">Profile</div>
+                                <img class="card-img-top pt-3" src="./images/default-profile-picture.jpg" alt="Basketball Pic"
+                                    style="width: 100px; height: 100px; margin: auto;">
+                                <div class="card-body">
+                                    <h3 class="card-title" id="name"> </h3>
+                                    <h5 class="card-subtitle" id="Sport"></h5>
+                                    <h5 class="card-subtitle" id="Parking"></h5>
+                                    <p class="card-text text-wrap" id="Information"></p>
+                                </div>
+                                <div class="card-footer" id=""><button type="button" class="btn btn-outline-success">View
+                                        More</button></div>
+                            </div> -->
 
     <!-- End of Sliding Cards - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
