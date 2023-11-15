@@ -5,12 +5,14 @@ body {
 #side_nav {
     background-color: black;
     min-width: 300px;
-    max-width: 210px;
 }
 
 .container_for_sideNavBar {
     min-height: 120vh;
-
+    position: absolute;
+    
+        top: -65px;
+        height: 100px;
 }
 
 #profile_img {
@@ -65,4 +67,45 @@ hr.h-color {
         max-width: 210px;
     }
 
+}
+
+@media only screen and (min-width: 300px) {
+    #side_nav {
+        width: 350px;
+    }
+
+    .container_for_sideNavBar{
+        right: -50px;
+    }
+}
+@media only screen and (min-width: 420px) {
+    .container_for_sideNavBar {
+        right: -70px;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .container_for_sideNavBar {
+        right: -92px;
+    }
+}
+@media only screen and (min-width: 767px) {
+    .container_for_sideNavBar {
+        right: -160px;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .container_for_sideNavBar {
+        right: -200px;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .container_for_sideNavBar {
+        right: -210px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .container_for_sideNavBar {
+        right: -270px;
+    }
 }
