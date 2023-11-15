@@ -48,7 +48,19 @@
     <div class="container">
         <h1>User Profile </h1>
         <form>
+
+            <!-- Dont forget to add icons for the li -->
             <fieldset class="mb-3" id="personalInfoFields" disabled>
+
+                <!-- Picture  -->
+                <div class="container d-flex justify-content-center w-100 mb-3">
+                    <img src="./images/default-profile-picture.jpg" id="userProfile" style="width: 95px; height: 95px; border-radius: 50%;" alt="profile picture">
+                </div>
+                <!-- button to edit picture -->
+                <div class="container d-flex justify-content-center w-100 mb-3">
+                    <button type="button" class="btn btn-secondary" onclick="editPicture()">Edit Picture</button>
+                </div>
+
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
