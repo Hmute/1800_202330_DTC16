@@ -41,6 +41,14 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
 
+    <style>
+        input[type=file]{
+    width:90px;
+    color:transparent;
+}
+
+
+    </style>
 </head>
 
 <body>
@@ -54,13 +62,12 @@
 
                 <!-- Picture  -->
                 <div class="container d-flex justify-content-center w-100 mb-3">
-                    <img src="./images/default-profile-picture.jpg" id="profilePicture" style="width: 95px; height: 95px; border-radius: 50%;" alt="profile picture">
+                    <img src="./images/default-profile-picture.jpg" id="profilePicture" width=250 height=250 style="border-radius: 50%;" alt="profile picture">
                 </div>
                 <!-- button to edit picture -->
 
             <div class="container text-center py-3 d-flex justify-content-center">
-                <img id="mypic-goes-here" src="images/blah.jpg" width=50 height=50 />
-                <input type="file" id="editPicture" accept="image/*" />
+                <input type="file" id="editPicture" accept="image/*"/>
             </div>
 
                 <!-- Personal Info -->

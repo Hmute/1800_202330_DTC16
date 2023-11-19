@@ -69,8 +69,6 @@ document.getElementById("homeBtn").addEventListener("click", () => window.locati
 var ImageFile;      //global variable to store the File Object reference
 
 
-
-
 function chooseFileListener() {
     const fileInput = document.getElementById("editPicture");   // pointer #1
     const image = document.getElementById("profilePicture");   // pointer #2
@@ -91,5 +89,3 @@ function chooseFileListener() {
 document.addEventListener('DOMContentLoaded', function () {
     chooseFileListener();
 });
-
-document.getElementById("mypic-input").addEventListener("click", chooseFileListener())
