@@ -54,13 +54,16 @@
 
                 <!-- Picture  -->
                 <div class="container d-flex justify-content-center w-100 mb-3">
-                    <img src="./images/default-profile-picture.jpg" id="userProfile" style="width: 95px; height: 95px; border-radius: 50%;" alt="profile picture">
+                    <img src="./images/default-profile-picture.jpg" id="profilePicture" style="width: 95px; height: 95px; border-radius: 50%;" alt="profile picture">
                 </div>
                 <!-- button to edit picture -->
-                <div class="container d-flex justify-content-center w-100 mb-3">
-                    <button type="button" class="btn btn-secondary" onclick="editPicture()">Edit Picture</button>
-                </div>
 
+            <div class="container text-center py-3 d-flex justify-content-center">
+                <img id="mypic-goes-here" src="images/blah.jpg" width=50 height=50 />
+                <input type="file" id="editPicture" accept="image/*" />
+            </div>
+
+                <!-- Personal Info -->
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
@@ -94,7 +97,7 @@
             <section class="mb-4">
                 <!-- Home -->
                 <div class="btn-group-vertical" role="group">
-                    <a class="btn text-dark btn-floating m-1" href="index.html" role="button">
+                    <a class="btn text-dark btn-floating m-1" href="/index.html" role="button">
                         <i class="material-icons md-36">home</i>
                         <br>
                         Home
