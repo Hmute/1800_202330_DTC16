@@ -41,6 +41,14 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
 
+    <style>
+        input[type=file]{
+    width:90px;
+    color:transparent;
+}
+
+
+    </style>
 </head>
 
 <body>
@@ -54,13 +62,15 @@
 
                 <!-- Picture  -->
                 <div class="container d-flex justify-content-center w-100 mb-3">
-                    <img src="./images/default-profile-picture.jpg" id="userProfile" style="width: 95px; height: 95px; border-radius: 50%;" alt="profile picture">
+                    <img src="./images/default-profile-picture.jpg" id="profilePicture" width=250 height=250 style="border-radius: 50%;" alt="profile picture">
                 </div>
                 <!-- button to edit picture -->
-                <div class="container d-flex justify-content-center w-100 mb-3">
-                    <button type="button" class="btn btn-secondary" onclick="editPicture()">Edit Picture</button>
-                </div>
 
+            <div class="container text-center py-3 d-flex justify-content-center">
+                <input type="file" id="editPicture" accept="image/*"/>
+            </div>
+
+                <!-- Personal Info -->
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
@@ -79,7 +89,7 @@
                 </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-info" id="homeBtn" onclick="goHome()">Home</button>
+                <button type="button" class="btn btn-info" id="homeBtn" >Home</button>
                 <span style="width: 10px"></span>
                 <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
@@ -94,7 +104,7 @@
             <section class="mb-4">
                 <!-- Home -->
                 <div class="btn-group-vertical" role="group">
-                    <a class="btn text-dark btn-floating m-1" href="index.html" role="button">
+                    <a class="btn text-dark btn-floating m-1" href="/index.html" role="button">
                         <i class="material-icons md-36">home</i>
                         <br>
                         Home

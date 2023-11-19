@@ -51,31 +51,41 @@
 <body>
 
 
-    <!-- Top Part -->
-    <div class="container-fluid py-3 fixed-height">
+    <!-- Top Part ------------------------------------------------------------------------------------>
+    <div class="container-fluid py-4 fixed-height">
         <div class="row align-items-center">
-            <div class="col-8">
-                <div class="search-box d-flex px-3 align-items-center">
+            <div class="col-10">
+    
+                <div class="search-box d-flex px-4 align-items-center">
                     <div class="search-icon pr-2"><i class="fa fa-search" aria-hidden="true"></i></div>
                     <input type="text" name="" id="search-bar" placeholder="Search"
                         class="border border-0 mr-2 search-bar flex-grow-1" autocomplete="off">
-
+                </div>
+    
+                <!-- <div class="col-auto ml-auto"> -->
+                <!-- This Icon will load the sideNavBar -->
+                <!-- <button onclick="eventSideNavBar()" style="position: relative; z-index: 99;" class="sideNavBarDiv"> -->
+                <!-- <i class="fa fa-user-circle " style="font-size: 48px; display: block;"></i> -->
+                <!-- </button> -->
+                <!-- </div> -->
+            </div>
+    
+            <!-- This is the pop up for the side bar ----Richard -->
+            <div class="col-2">
+                <div class="row"><i class="fa fa-user-circle " style="font-size: 48px;" id="profile"
+                        style="position: fixed; z-index: 99;"></i>
+                    <div id="sideBar" style="display: none;"></div>
                 </div>
             </div>
-            <div class="col-auto ml-auto">
-                <!-- This Icon will load the sideNavBar -->
-                <button onclick="eventSideNavBar()" style="position: relative; z-index: 99;" class="sideNavBarDiv">
-                    <i class="fa fa-user-circle" style="font-size: 48px; display: block;"></i>
-                </button>
-            </div>
+    
         </div>
+    
         <div class="container-fluid bg-white rounded-4 py-2 result-box" style="display: none;">
             <div class="result-box">
             </div>
         </div>
-
+    
     </div>
-
     <!-- Body-->
 
     <div class="container">

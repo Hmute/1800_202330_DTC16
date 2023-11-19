@@ -43,3 +43,5 @@ function insertNameFromFirestore() {
 }
 
 insertNameFromFirestore();
+
+document.getElementById("Home").addEventListener("click", () => window.location.href = "index.html")
