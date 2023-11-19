@@ -44,6 +44,7 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
+
 function saveUserInfo() {
     //a) get user entered values
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
