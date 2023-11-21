@@ -23,6 +23,89 @@ if (/Mobi/.test(navigator.userAgent)) {
   });
 }
 
+$("input[data-type='currency']").on({
+  keyup: function () {
+    formatCurrency($(this));
+  },
+  blur: function () {
+    formatCurrency($(this), "blur");
+  }
+});
+
+
+function formatNumber(n) {
+  // format number 1000000 to 1,234,567
+  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
+
+function formatCurrency(input, blur) {
+  // appends $ to value, validates decimal side
+  // and puts cursor back in right position.
+
+  // get input value
+  var input_val = input.val();
+
+  // don't validate empty input
+  if (input_val === "") { return; }
+
+  // original length
+  var original_len = input_val.length;
+
+  // initial caret position 
+  var caret_pos = input.prop("selectionStart");
+
+  // check for decimal
+  if (input_val.indexOf(".") >= 0) {
+
+    // get position of first decimal
+    // this prevents multiple decimals from
+    // being entered
+    var decimal_pos = input_val.indexOf(".");
+
+    // split number by decimal point
+    var left_side = input_val.substring(0, decimal_pos);
+    var right_side = input_val.substring(decimal_pos);
+
+    // add commas to left side of number
+    left_side = formatNumber(left_side);
+
+    // validate right side
+    right_side = formatNumber(right_side);
+
+    // On blur make sure 2 numbers after decimal
+    if (blur === "blur") {
+      right_side += "00";
+    }
+
+    // Limit decimal to only 2 digits
+    right_side = right_side.substring(0, 2);
+
+    // join number by .
+    input_val = "$" + left_side + "." + right_side;
+
+  } else {
+    // no decimal entered
+    // add commas to number
+    // remove all non-digits
+    input_val = formatNumber(input_val);
+    input_val = "$" + input_val;
+
+    // final formatting
+    if (blur === "blur") {
+      input_val += ".00";
+    }
+  }
+
+  // send updated string to input
+  input.val(input_val);
+
+  // put caret back in the right position
+  var updated_len = input_val.length;
+  caret_pos = updated_len - original_len + caret_pos;
+  input[0].setSelectionRange(caret_pos, caret_pos);
+}
+
 document.getElementById("eventForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -36,6 +119,8 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
   var date = document.getElementById("datepicker").value;
   var time = document.getElementById("timepicker").value;
   var description = document.getElementById("descriptionInput").value;
+  var cost = document.getElementById("currency-field").value;
+  var limit = document.getElementById("attendeeInput").value;
 
   // Get the file from the input
   var imageFile = document.getElementById("input-image").files[0];
@@ -76,6 +161,8 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
           date: date,
           time: time,
           description: description,
+          cost: cost,
+          limit: limit,
           image: downloadURL // Use the download URL for the image
         };
 
@@ -93,7 +180,9 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
       postalCode: postalCode,
       date: date,
       time: time,
-      description: description
+      description: description,
+      cost: cost,
+      limit: limit,
       // image field is not included as no image is selected
     };
 
@@ -104,3 +193,11 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
   document.getElementById("eventForm").reset();
 
 });
+
+document.getElementById("eventForm").addEventListener("keypress", function (event) {
+  // Check if the pressed key is 'Enter'
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent form submission
+  }
+});
+

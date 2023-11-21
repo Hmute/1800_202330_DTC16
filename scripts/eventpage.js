@@ -38,34 +38,6 @@ function clickeventsbtn() {
     });
 }
 
-function writeEvents() {
-    var eventsRef = db.collection("Events")
-
-    eventsRef.add({
-        sport: "Basketball",
-        date: "11/11/11",
-        information: "There will be a community basketball where every people could just play with one another",
-        title: "God's Basketball",
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
-    })
-
-    eventsRef.add({
-        sport: "Soccer",
-        date: "12/12/12",
-        information: "There will be a community soccer where every people could just play with one another",
-        title: "God's Soccer",
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
-    })
-
-    eventsRef.add({
-        sport: "Volleyball",
-        date: "1/1/1",
-        information: "There will be a community volleyball where every people could just play with one another",
-        title: "God's Volleyball",
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
-    })
-}
-
 function createGymCard(collectionId) {
     let counter = 0;
 
