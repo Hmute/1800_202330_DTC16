@@ -22,7 +22,7 @@ function createFavoriteCard() {
             divElement.setAttribute("data-document-id", currentDocId);
             divElement.innerHTML = `
               <div class="eventcard container mt-5">
-                <div class="thebox card">
+                <div class="thebox card border-dark-subtle" style="height: 200px; overflow: hidden;">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-6">
