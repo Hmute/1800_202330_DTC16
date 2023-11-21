@@ -12,32 +12,27 @@ async function saveClubInfo() {
     var leagueName = document.getElementById("leagueInput").value;
     var players = document.getElementById("playersInput").value;
 
-    // Get the image file
-    var imageInput = document.getElementById("imageInput");
-    var image = imageInput.files[0];
-
     // Validate input fields
-    if (!clubName || !leagueName || !players || !image) {
+    if (!clubName || !leagueName || !players) {
         console.error('Please fill in all required fields and select an image.');
         return;
     }
 
     try {
         // Create a storage reference for the image
-        var storageRef = firebase.storage().ref('club_images/' + image.name);
+        // var storageRef = firebase.storage().ref('club_images/' + image.name);
 
         // Upload the image to Firebase Storage
-        await storageRef.put(image);
+        // await storageRef.put(image);
 
         // Get the download URL of the uploaded image
-        const downloadURL = await storageRef.getDownloadURL();
+        // const downloadURL = await storageRef.getDownloadURL();
 
         // Add a new document to the "clubs" collection with the image URL
         await db.collection("clubs").add({
             clubName: clubName,
             leagueName: leagueName,
             players: players,
-            imageUrl: downloadURL, // Save the image URL in the database
         });
 
         console.log('Club information saved successfully.');
