@@ -102,9 +102,10 @@ function createEventCard(collectionId) {
 
     db.collection(collectionId).get().then(documents => {
         documents.forEach(docData => {
-            var sport = docData.data().sport;
+            var title = docData.data().title;
             var date = docData.data().date;
-            var information = docData.data().information;
+            var description = docData.data().description;
+            var imageSrc = docData.data().image
 
             let newCard;
 
@@ -115,10 +116,15 @@ function createEventCard(collectionId) {
             }
 
             newCard.setAttribute("data-document-id", docData.id)
-            newCard.querySelector(".box-title").innerHTML = sport;
+            newCard.querySelector(".box-title").innerHTML = title;
             newCard.querySelector(".date").innerHTML = date;
-            newCard.querySelector(".boxinfo").innerHTML = information;
+            newCard.querySelector(".boxinfo").innerHTML = description;
             newCard.querySelector(".far").id = "test-" + docData.id;
+
+            var imgElement = newCard.querySelector("img.logo"); // Assuming 'img.logo' is the correct selector for your image
+            if (imgElement && imageSrc) {
+                imgElement.src = imageSrc;
+            }
 
             const user = firebase.auth().currentUser;
             db.collection("users").doc(user.uid).get().then(userDoc => {
