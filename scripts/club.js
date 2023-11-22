@@ -1,9 +1,13 @@
 var current;
 
+// This is the code for the club page. It is used to add a club to the database and display all the clubs in the database.
+
+// Initialize the option to edit club information
 function editClubInfo() {
     document.getElementById("club").disabled = false;
 }
 
+// Saves the club information to the database
 async function saveClubInfo() {
     console.log('Attempting to save club information...');
 
