@@ -35,10 +35,10 @@
                         
                     </div>
                     <!-- Add a button below here, and delete when done -->
-                    <div class="container d-flex justify-content-center w-100 mb-3"><button type="button"
-                            class="btn btn-dark " id="profile_img " align="center" ><img
+                    <div  class="container d-flex justify-content-center w-100 mb-3" onclick="goToProfile()"><button type="button"
+                            class="btn btn-dark profile" id="profile_img " align="center" ><img
                                 src="./images/default-profile-picture.jpg"
-                                style="width: 95px; height: 95px; border-radius: 50%;" alt=""></button></div>
+                                style="width: 95px; height: 95px; border-radius: 50%;" alt="" onclick="goToProfile()"></button></div>
                     <!-- Dont forget to add icons for the li -->
                     <ul class="list-unstyled px-2 m-3">
                         <!-- This is the profile name  -->
@@ -52,7 +52,7 @@
                         <li class=""><a href="/" class="text-decoration-none d-block px-3 py-3 fs-3"><i
                                     class="fa-solid fa-dumbbell" style="color: #909eb6;"></i> Gyms</a></li>
                         <li class="">
-                            <a href="#" class="text-decoration-none d-block px-3 py-3 fs-3" ><i class="fa-regular fa-bell"
+                            <a href="/eventpage.html" class="text-decoration-none d-block px-3 py-3 fs-3" ><i class="fa-regular fa-bell"
                                     style="color: #909eb6;"></i> Events
 
                                 <!-- class="text-decoration-none d-flex justify-content-between d-block px-3 py-2"> -->
@@ -63,9 +63,9 @@
                                 <!-- <span class="bg-dark rounded-pill text-white py-0 px-2 d-block px-3 " id="messasges">02</span> -->
                             </a>
                         </li>
-                        <!-- Friends -->
-                        <!-- <li class=""><a href="#" class="text-decoration-none d-block px-3 py-3 fs-3"><i -->
-                                    <!-- class="fa-solid fa-user-group" style="color: #909eb6;"></i> Friends</a></li> -->
+                        <!-- Favorites -->
+                        <li class=""><a href="./favorites.html" class="text-decoration-none d-block px-3 py-3 fs-3"><i
+                                    <!-- class="fa-solid fa-heart" style="color: #909eb6;"></i> Favorites</a></li> -->
                         <!-- Events -->
                         <li class=""><a href="createevents.html" class="text-decoration-none d-block px-3 py-3 fs-3"><i
                                     class="fa-regular fa-calendar" style="color: #909eb6;"></i> Create Events</a></li>

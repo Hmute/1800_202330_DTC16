@@ -16,6 +16,11 @@ function eventSideBar() {
 
 }
 
+function goToProfile() {
+    window.location.href = "profile.html";
+}
+
+
 
 let profPic = document.getElementById("profile");
 profPic.addEventListener("click", eventSideBar);
