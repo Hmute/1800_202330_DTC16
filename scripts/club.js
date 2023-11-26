@@ -1,90 +1,153 @@
-var current;
+var ImageFile;
+
+
+
+function editClubInfo() {
+    document.getElementById("TeamInfoFields").disabled = false;
+
+}
+document.addEventListener('DOMContentLoaded', function () {
+    chooseFileListener();
+});
 
 // This is the code for the club page. It is used to add a club to the database and display all the clubs in the database.
+function chooseFileListener() {
+    const fileInput = document.getElementById("pic-input");   // pointer #1
+    const image = document.getElementById("teampic");         // pointer #2
 
-// Initialize the option to edit club information
-function editClubInfo() {
-    document.getElementById("club").disabled = false;
-}
-
-// Saves the club information to the database
-async function saveClubInfo() {
-    console.log('Attempting to save club information...');
-
-    // Get the values from the form
-    var clubName = document.getElementById("clubInput").value;
-    var leagueName = document.getElementById("leagueInput").value;
-    var players = document.getElementById("playersInput").value;
-
-    // Validate input fields
-    if (!clubName || !leagueName || !players) {
-        console.error('Please fill in all required fields and select an image.');
+    if (!fileInput || !image) {
+        console.error("Required elements not found in the DOM.");
         return;
     }
 
-    try {
-        // Create a storage reference for the image
-        // var storageRef = firebase.storage().ref('club_images/' + image.name);
+    // Attach listener to input file
+    fileInput.addEventListener('change', function (e) {
+        if (e.target.files.length > 0) {
+            // The change event returns a file "e.target.files[0]"
+            ImageFile = e.target.files[0];
+            var blob = URL.createObjectURL(ImageFile);
 
-        // Upload the image to Firebase Storage
-        // await storageRef.put(image);
-
-        // Get the download URL of the uploaded image
-        // const downloadURL = await storageRef.getDownloadURL();
-
-        // Add a new document to the "clubs" collection with the image URL
-        await db.collection("clubs").add({
-            clubName: clubName,
-            leagueName: leagueName,
-            players: players,
-        });
-
-        console.log('Club information saved successfully.');
-        document.getElementById('club').disabled = true;
-        // Redirect to the clubs.html page after successfully adding the club
-        window.location.href = 'clubs.html';
-    } catch (error) {
-        console.error("Error saving club information: ", error);
-    }
-}
-
-// Call this function when the page loads or whenever you want to refresh the club list
-function populateClubs() {
-    var clubContainer = document.getElementById("clubContainer");
-
-    // Clear the existing content in the container
-    clubContainer.innerHTML = "";
-
-    // Fetch clubs from Firestore
-    db.collection("clubs").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // Create a div for each club instance
-            var clubDiv = document.createElement("div");
-            clubDiv.classList.add("card", "mb-3");
-
-            // Populate the club information
-            clubDiv.innerHTML = `
-                <div class="card-body">
-                    <h5 class="card-title">${doc.data().clubName}</h5>
-                    <p class="card-text">League: ${doc.data().leagueName}</p>
-                    <p class="card-text">Players: ${doc.data().players}</p>
-                    <!-- Add more information as needed -->
-
-                    <!-- Add buttons or links for each club instance if necessary -->
-
-                </div>
-            `;
-
-            // Append the club div to the container
-            clubContainer.appendChild(clubDiv);
-        });
+            // Change the DOM img element source to point to this file
+            image.src = blob;    // Assign the "src" property of the "img" tag
+            image.style.width = '200px';  // Set the desired width
+            image.style.height = 'auto';  // Set height to auto to maintain aspect ratio
+        } else {
+            console.log("No file selected.");
+        }
     });
 }
 
-// Call the populateClubs function to initially populate the container
+
+
+chooseFileListener();
+
+function saveClubInfo() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var storageRef = firebase.storage().ref("images/" + user.uid + ".jpg");
+
+            // Asynchronous call to put File Object (global variable ImageFile) onto Cloud
+            storageRef.put(ImageFile)
+                .then(function () {
+                    console.log('Uploaded to Cloud Storage.');
+
+                    // Asynchronous call to get URL from Cloud
+                    storageRef.getDownloadURL()
+                        .then(function (url) { // Get "url" of the uploaded file
+                            console.log("Got the download URL.");
+
+                            // Get values from the form
+                            var teamName = document.getElementById('TeamName').value;
+                            var leagueName = document.getElementById('LeagueName').value;
+                            var players = document.getElementById('playersInput').value;
+
+                            // Validate input fields
+                            if (!teamName || !leagueName || !players || !ImageFile) {
+                                console.error('Please fill in all required fields and select an image.');
+                                return;
+                            }
+
+                            // Asynchronous call to save the form fields into Firestore
+                            var teamRef = db.collection("users").doc(user.uid).collection("teams").doc();
+                            teamRef.set({
+                                teamName: teamName,
+                                leagueName: leagueName,
+                                players: players,
+                                teamPic: url // Save the URL into teams subcollection
+                            })
+                                .then(function () {
+                                    console.log('Added Team info to Firestore.');
+                                    console.log('Saved Team info');
+                                    document.getElementById('TeamInfoFields').disabled = true;
+
+                                    // Redirect to another page after saving
+                                    window.location.href = 'clubs.html';
+
+                                })
+                                .catch(function (error) {
+                                    console.error("Error saving team info to Firestore: ", error);
+                                });
+                        })
+                        .catch(function (error) {
+                            console.error("Error getting download URL: ", error);
+                        });
+                })
+                .catch(function (error) {
+                    console.error("Error uploading to Cloud Storage: ", error);
+                });
+        } else {
+            console.log("No user is currently signed in.");
+        }
+
+    });
+}
+
+function populateClubs() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            console.log("User is signed in:", user.uid); // Log user ID for debugging
+
+            var clubContainer = document.getElementById("clubContainer");
+            clubContainer.innerHTML = ""; // Clear existing content
+
+            var teamsRef = db.collection("users").doc(user.uid).collection("teams");
+            teamsRef.get().then((querySnapshot) => {
+                if (querySnapshot.empty) {
+                    console.log("No teams found."); // Log if no teams are found
+                }
+
+                querySnapshot.forEach((doc) => {
+                    var teamData = doc.data();
+                    console.log("Team data:", teamData); // Log each team's data
+
+                    var clubDiv = document.createElement("div");
+                    clubDiv.classList.add("d-flex", "justify-content-between", "align-items-center", "club-card");
+
+                    clubDiv.innerHTML = `
+                        <div class="club-info">
+                            <h5 class="club-title">${teamData.teamName}</h5>
+                            <p class="club-text">${teamData.leagueName}</p>
+                            <p class="club-text">${teamData.players}</p>
+                        </div>
+                        ${teamData.teamPic ? `<img src="${teamData.teamPic}" alt="${teamData.teamName}" class="club-image">` : ''}
+                    `;
+                    clubContainer.appendChild(clubDiv);
+                });
+            }).catch(function (error) {
+                console.error("Error fetching teams:", error);
+            });
+        } else {
+            console.log("No user is currently signed in.");
+            clubContainer.innerHTML = "<p>User not signed in or no teams to display.</p>";
+        }
+    });
+}
+
 populateClubs();
 
 function sentTo() {
+
     window.location.href = 'clubinstance.html';
 }
+
 

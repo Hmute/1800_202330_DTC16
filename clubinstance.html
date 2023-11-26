@@ -39,6 +39,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -88,31 +89,34 @@
 
     <!--Form to create a new club instance-->
     <div class="container">
-        <h1>New Club Form</h1>
+        <h1>New Club Form </h1>
         <form>
-            <fieldset class="mb-3" id="club" disabled>
-                <div class="form-group">
-                    <label>Clubs Name</label>
-                    <input type="text" id="clubInput" class="form-control" placeholder="Enter your Team">
+            <fieldset class="mb-3" id="TeamInfoFields" disabled>
+                <div class="form-group py-5">                
+                    <div id="profile-container">             
+                        <img id="teampic" src="" />  
+                    </div>                                   
+                    <input id="pic-input" type="file">    
                 </div>
                 <div class="form-group">
-                    <label>Clubs League</label>
-                    <input type="text" id="leagueInput" class="form-control" placeholder="Enter your League">
+                    <label>Team Name</label>
+                    <input type="text" id="TeamName" class="form-control" placeholder="Enter your Team Name">
+                </div>
+                <div class="form-group">
+                    <label>League Name</label>
+                    <input type="text" id="LeagueName" class="form-control" placeholder="Enter your League Name">
                 </div>
                 <div class="form-group">
                     <label>Players</label>
-                    <input type="text" id="playersInput" class="form-control" placeholder="Enter your Player names">
+                    <input type="text" id="playersInput" class="form-control" placeholder="Enter your Team Mates">
                 </div>
-
             </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-secondary" onclick="editClubInfo()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-info" onclick="saveClubInfo()">Save</button>
+            </div>
         </form>
-    </div>
-    <div class="d-flex justify-content-end mt-5">
-        <button type="button" class="btn btn-secondary" onclick="editClubInfo()">Edit</button>
-        <span style="width: 10px"></span>
-        <button type="button" class="btn btn-info" onclick="saveClubInfo()">Save</button>
-    </div>
-    </form>
     </div>
 
     <!-- footer -->
