@@ -25,28 +25,34 @@ function goToProfile() {
 let profPic = document.getElementById("profile");
 profPic.addEventListener("click", eventSideBar);
 
-function insertNameFromFirestore() {
-    // Check if the user is logged in:
+function updateSidebarUserInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-
-            console.log(user.uid); // Let's know who the logged-in user is by logging their UID
-
-            currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
+            // Go to the Firestore document of the user
+            currentUser = db.collection("users").doc(user.uid);
 
             currentUser.get().then(userDoc => {
-                // Get the user name
-                var userName = userDoc.data().name;
-                console.log(userName);
-                //$("#name-goes-here").text(userName); // jQuery
-                document.getElementById("name-goes-here").innerText = userName;
+                var userData = userDoc.data();
+                
+                // Update the user name in the sidebar
+                var userNameElement = document.getElementById("name-goes-here");
+                if (userNameElement && userData.name) {
+                    userNameElement.innerText = userData.name;
+                }
+
+                // Update the profile picture in the sidebar
+                var userProfilePicElement = document.querySelector("#sidebarProfilePicture img");
+                if (userProfilePicElement && userData.profilePic) {
+                    userProfilePicElement.src = userData.profilePic;
+                }
             })
         } else {
-            console.log("No user is logged in."); // Log a message when no user is logged in
+            console.log("No user is logged in.");
         }
-    })
+    });
 }
 
-insertNameFromFirestore();
+updateSidebarUserInfo();
 
 document.getElementById("Home").addEventListener("click", () => window.location.href = "index.html")
+
