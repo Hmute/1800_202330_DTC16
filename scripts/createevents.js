@@ -110,20 +110,32 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
   event.preventDefault();
 
   // Other form inputs
-  var host = document.getElementById("hostInput").value;
-  var sport = document.getElementById("sportInput").value.toLowerCase();
-  var title = document.getElementById("titleInput").value;
-  var address = document.getElementById("addressInput").value;
-  var city = document.getElementById("cityInput").value;
-  var postalCode = document.getElementById("zipInput").value;
-  var date = document.getElementById("datepicker").value;
-  var time = document.getElementById("timepicker").value;
-  var description = document.getElementById("descriptionInput").value;
-  var cost = document.getElementById("currency-field").value;
-  var limit = document.getElementById("attendeeInput").value;
+  var host = document.getElementById("hostInput").value.trim();
+  var sport = document.getElementById("sportInput").value.trim().toLowerCase();
+  var title = document.getElementById("titleInput").value.trim();
+  var address = document.getElementById("addressInput").value.trim();
+  var city = document.getElementById("cityInput").value.trim();
+  var postalCode = document.getElementById("zipInput").value.trim();
+  var date = document.getElementById("datepicker").value.trim();
+  var time = document.getElementById("timepicker").value.trim();
+  var description = document.getElementById("descriptionInput").value.trim();
+  var cost = document.getElementById("currency-field").value.trim();
+  var limit = document.getElementById("attendeeInput").value.trim();
+
+  // Check for empty required fields
+  if (!host || !sport || !title || !address || !city || !postalCode || !date || !time || !description || !cost || !limit) {
+    handleFormMessage(false, "Please fill in all the fields.");
+    return; // Stop if validation fails
+  }else{
+    handleFormMessage(true, "Congratulations! You successfully post an event.")
+  }
+
+
+
 
   // Get the file from the input
   var imageFile = document.getElementById("input-image").files[0];
+
 
   function saveEventData(eventData) {
     db.collection("Events").add(eventData)
@@ -163,6 +175,7 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
           description: description,
           cost: cost,
           limit: limit,
+          attendees: 0,
           image: downloadURL // Use the download URL for the image
         };
 
@@ -170,26 +183,7 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
         saveEventData(eventData);
       });
     });
-  } else {
-    var eventData = {
-      host: host,
-      sport: sport,
-      title: title,
-      address: address,
-      city: city,
-      postalCode: postalCode,
-      date: date,
-      time: time,
-      description: description,
-      cost: cost,
-      limit: limit,
-      // image field is not included as no image is selected
-    };
-
-    // Save the event data to Firestore
-    saveEventData(eventData);
-  }
-
+  } 
   document.getElementById("eventForm").reset();
 
 });
@@ -200,4 +194,22 @@ document.getElementById("eventForm").addEventListener("keypress", function (even
     event.preventDefault(); // Prevent form submission
   }
 });
+
+function handleFormMessage(isSuccess, message) {
+  var successDiv = document.getElementById("formSuccess");
+  var errorDiv = document.getElementById("formError");
+
+  if (isSuccess) {
+    successDiv.innerHTML = message;
+    successDiv.style.display = "block";
+    errorDiv.style.display = "none";
+    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
+    errorDiv.innerHTML = message;
+    errorDiv.style.display = "block";
+    successDiv.style.display = "none";
+    errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
 
