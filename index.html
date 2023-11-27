@@ -117,19 +117,19 @@
     </div>
     <!-- Next Part Sliding Cards - Richard - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-    <div class="swipeCardsDiv" style="z-index: -100;">
+    <div class="swipeCardsDiv" style="z-index: -100;" id="swipingCardsContainer">
     </div>
 
-    <template id="swipingCards">
+    <template id="swipingCardsTemplate">
         <div class="card m-1" style="width: 25rem; height: 300px ; z-index: 1;" id="individual_card">
-            <div class="card-header">Profile</div>
+            <div class="card-header" id="swiping-cards-title">Profile</div>
             <img class="card-img-top pt-3" src="./images/basketball.png" alt="Basketball Pic"
                 style="width: 100px; height: 100px; margin: auto;">
             <div class="card-body">
                 <h3 class="card-title" id="name"> </h3>
                 <h5 class="card-subtitle" id="Sport"></h5>
-                <h5 class="card-subtitle" id="Parking"></h5>
-                <p class="card-text text-wrap" id="Information"></p>
+                <h5 class="card-subtitle " id="Rating"></h5>
+                <p class="card-text text-wrap " id="Information"></p>
             </div>
             <div class="card-footer" id=""><button type="button" class="btn btn-outline-success">View
                     More</button></div>

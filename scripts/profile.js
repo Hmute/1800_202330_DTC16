@@ -130,7 +130,8 @@ function saveUserInfo() {
 }
 
 
-document.getElementById("homeBtn").addEventListener("click", () => window.location.href = "index.html")
+var home = document.getElementById("homeBtn")
+home.addEventListener("click", () => window.location.href = "index.html")
 
 
 
