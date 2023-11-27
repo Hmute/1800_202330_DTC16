@@ -25,3 +25,45 @@ $(function () {
 // }
 
 // insertNameFromFirestore();
+
+// db.collection("Gyms").get().then((snapshot) => {
+//     console.log(snapshot.docs);
+//     snapshot.docs.forEach(doc => {
+//         // console.log(doc.data());
+//     })
+// })
+
+function displayCardDynamically(collection) {
+    let cardTemplate = document.getElementById("swipingCardsTemplate");
+    
+    db.collection(collection).get().then(gyms => {
+        gyms.forEach(doc => {
+            var gymName = doc.data().Gym_name;
+            var details = doc.data().Information;
+            var rating = doc.data().Rating;
+
+            console.log(gymName);
+            console.log(details);
+            console.log(rating);
+            
+            let newCard = cardTemplate.content.cloneNode(true); // Clone the template its like the shadow clone jutsu like Naruto 
+
+
+        
+            newCard.querySelector("#swiping-cards-title").innerHTML = gymName;
+            newCard.querySelector("#Information").innerHTML = details;
+            newCard.querySelector("#Rating").innerHTML = rating;
+
+            document.getElementById("container-for-cards").appendChild(newCard);
+
+
+            
+        })
+    })
+}
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     displayCardDynamically("Gyms");
+//     });
+
+displayCardDynamically("Gyms");
