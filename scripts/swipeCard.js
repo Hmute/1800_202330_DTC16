@@ -34,7 +34,7 @@ $(function () {
 // })
 
 function displayCardDynamically(collection) {
-    let cardTemplate = document.getElementById("swipingCardsTemplate")[0];
+    let cardTemplate = document.getElementById("swipingCardsTemplate");
     
     db.collection(collection).get().then(gyms => {
         gyms.forEach(doc => {
@@ -54,7 +54,7 @@ function displayCardDynamically(collection) {
             newCard.querySelector("#Information").innerHTML = details;
             newCard.querySelector("#Rating").innerHTML = rating;
 
-            document.getElementById("swipingCardsContainer").appendChild(newCard);
+            document.getElementById("container-for-cards").appendChild(newCard);
 
 
             
