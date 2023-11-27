@@ -18,7 +18,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Boostrap Library JS CDN  go here -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -33,14 +32,14 @@
     <!-- Other libraries go here -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-
-    <!-------------------------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -55,13 +54,13 @@
     <div class="container-fluid py-4 fixed-height">
         <div class="row align-items-center">
             <div class="col-10">
-    
+
                 <div class="search-box d-flex px-4 align-items-center">
                     <div class="search-icon pr-2"><i class="fa fa-search" aria-hidden="true"></i></div>
                     <input type="text" name="" id="search-bar" placeholder="Search"
                         class="border border-0 mr-2 search-bar flex-grow-1" autocomplete="off">
                 </div>
-    
+
                 <!-- <div class="col-auto ml-auto"> -->
                 <!-- This Icon will load the sideNavBar -->
                 <!-- <button onclick="eventSideNavBar()" style="position: relative; z-index: 99;" class="sideNavBarDiv"> -->
@@ -69,7 +68,7 @@
                 <!-- </button> -->
                 <!-- </div> -->
             </div>
-    
+
             <!-- This is the pop up for the side bar ----Richard -->
             <div class="col-2">
                 <div class="row"><i class="fa fa-user-circle " style="font-size: 48px;" id="profile"
@@ -77,48 +76,47 @@
                     <div id="sideBar" style="display: none;"></div>
                 </div>
             </div>
-    
+
         </div>
-    
+
         <div class="container-fluid bg-white rounded-4 py-2 result-box" style="display: none;">
             <div class="result-box">
             </div>
         </div>
-    
+
     </div>
     <!-- Body-->
 
+    <!--Form to create a new club instance-->
     <div class="container">
-        <h1>New Club Form</h1>
+        <h1>New Club Form </h1>
         <form>
-            <fieldset class="mb-3" id="club" disabled>
-                <div class="form-group">
-                    <label>Clubs Name</label>
-                    <input type="text" id="clubInput" class="form-control" placeholder="Enter your Team">
+            <fieldset class="mb-3" id="TeamInfoFields" disabled>
+                <div class="form-group py-5">                
+                    <div id="profile-container">             
+                        <img id="teampic" src="" />  
+                    </div>                                   
+                    <input id="pic-input" type="file">    
                 </div>
                 <div class="form-group">
-                    <label>Clubs League</label>
-                    <input type="text" id="leagueInput" class="form-control" placeholder="Enter your League">
+                    <label>Team Name</label>
+                    <input type="text" id="TeamName" class="form-control" placeholder="Enter your Team Name">
+                </div>
+                <div class="form-group">
+                    <label>League Name</label>
+                    <input type="text" id="LeagueName" class="form-control" placeholder="Enter your League Name">
                 </div>
                 <div class="form-group">
                     <label>Players</label>
-                    <input type="text" id="playersInput" class="form-control" placeholder="Enter your Player names">
+                    <input type="text" id="playersInput" class="form-control" placeholder="Enter your Team Mates">
                 </div>
-
-                <div class="form-group">
-                    <label>Upload Image</label>
-                    <input type="file" id="imageInput" class="form-control-file">
-                </div>
-
             </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-secondary" onclick="editClubInfo()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-info" onclick="saveClubInfo()">Save</button>
+            </div>
         </form>
-    </div>
-    <div class="d-flex justify-content-end mt-5">
-        <button type="button" class="btn btn-secondary" onclick="editClubInfo()">Edit</button>
-        <span style="width: 10px"></span>
-        <button type="button" class="btn btn-info" onclick="saveClubInfo()">Save</button>
-    </div>
-    </form>
     </div>
 
     <!-- footer -->
@@ -163,13 +161,6 @@
             </section>
         </div>
     </footer>
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/script.js"></script>
