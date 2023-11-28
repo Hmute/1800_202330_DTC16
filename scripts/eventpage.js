@@ -46,7 +46,7 @@ function createGymCard(collectionId) {
             var title = docData.data().Gym_name;
             var rating = docData.data().Rating;
             var information = docData.data().Information;
-            var docId = docData.id
+            var gymDocId = docData.id;
             let newCard;
 
             if (counter === 0) {
@@ -58,9 +58,11 @@ function createGymCard(collectionId) {
             newCard.querySelector(".box-title").innerHTML = title;
             newCard.querySelector(".starnumber").innerHTML = rating;
             newCard.querySelector(".boxinfo").innerHTML = information;
+            newCard.querySelector(".card-href").href = "gympage.html?gymDocID"+gymDocId;
 
             document.body.appendChild(newCard);
             counter++;
+            
 
 
 
@@ -172,11 +174,4 @@ document.addEventListener("click", function (event) {
         }
     }
 });
-
-
-
-
-
-
-
 

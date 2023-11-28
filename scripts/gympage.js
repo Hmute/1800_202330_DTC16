@@ -141,27 +141,32 @@ function scheduleStuff() {
 }
 
 function displayGymInfo() {
-    let params = new URL(window.location.href); //get URL of search bar
-    let ID = params.searchParams.get("docID"); //get value for key "id"
-    console.log(ID);
-
+    let params = new URL(window.location.href);
+    let ID = params.searchParams.get("gymDocId");
+  
+    if (ID === null) {
+      console.error("gymDocId parameter is missing from the URL");
+      // You might want to redirect the user or show an error message here
+      // return; // Un-comment this if you want to stop the function here
+    } else {
     // doublecheck: is your collection called "Reviews" or "reviews"?
-    db.collection("Gyms")
-        .doc(ID)
-        .get()
-        .then(doc => {
-            gymName = doc.data().Gym_name;
-            dropIn = doc.data().dropin_info;
-            gymPrice = doc.data().gym_price_info;
-            gymSchedule = doc.data().Schedule;
+        db.collection("Gyms")
+            .doc(ID)
+            .get()
+            .then(doc => {
+                gymName = doc.data().Gym_name;
+                dropIn = doc.data().dropin_info;
+                gymPrice = doc.data().gym_price_info;
+                gymSchedule = doc.data().Schedule;
 
-            // only populate title, and image
-            document.getElementById("the-gym-name").innerHTML = gymName;
-            document.getElementById("drop-in-info").innerHTML = dropIn;
-            document.getElementById("price-info").innerHTML = gymPrice;
-            document.getElementById("the-gym-schedule").innerHTML = gymSchedule
+                // only populate title, and image
+                document.getElementById("the-gym-name").innerHTML = gymName;
+                document.getElementById("drop-in-info").innerHTML = dropIn;
+                document.getElementById("price-info").innerHTML = gymPrice;
+                document.getElementById("the-gym-schedule").innerHTML = gymSchedule
 
-        });
+            });
+}   
 }
 displayGymInfo();
 
@@ -169,7 +174,7 @@ displayGymInfo();
 
 function saveGymDocumentIDAndRedirect() {
     let params = new URL(window.location.href) //get the url from the search bar
-    let ID = params.searchParams.get("docID");
+    let ID = params.searchParams.get("gymDocId");
     localStorage.setItem('gymID', ID);
     window.location.href = 'gymreview.html';
 
