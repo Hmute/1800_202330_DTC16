@@ -71,13 +71,6 @@
           <input type="text" name="" id="search-bar" placeholder="Search"
             class="border border-0 mr-2 search-bar flex-grow-1" autocomplete="off">
         </div>
-
-        <!-- <div class="col-auto ml-auto"> -->
-        <!-- This Icon will load the sideNavBar -->
-        <!-- <button onclick="eventSideNavBar()" style="position: relative; z-index: 99;" class="sideNavBarDiv"> -->
-        <!-- <i class="fa fa-user-circle " style="font-size: 48px; display: block;"></i> -->
-        <!-- </button> -->
-        <!-- </div> -->
       </div>
 
       <!-- This is the pop up for the side bar ----Richard -->
@@ -90,142 +83,137 @@
 
     </div>
     <!-- This is the part -->
-    <div class="container">
-      <h1 class="text-center py-2">Event Form</h1>
-      <form id="eventForm">
-        <fieldset>
 
-          <div class="row mb-2">
-            <div class="form-group col-6">
-              <label style="font-size: 15px;">Host</label>
-              <input type="text" id="hostInput" class="form-control" placeholder="Enter the host name"
-                style="border-color: #333; font-size: 15px;">
-            </div>
-            <div class="form-group col-6">
-              <label style="font-size: 15px;">Sport</label>
-              <input type="text" id="sportInput" class="form-control" placeholder="Enter the sport"
-                style="border-color: #333; font-size: 15px;">
-            </div>
-          </div>
 
-          <div class="form-group">
-            <label style="font-size: 15px;">Event Title</label>
-            <input type="text" id="titleInput" class="form-control" placeholder="Enter the title of your event"
-              style="border-color: #333; font-size: 15px;">
-          </div>
-          <div class="form-group">
-            <label style="font-size: 15px;">Event Address</label>
-            <input type="text" id="addressInput" class="form-control" placeholder="Enter the address"
-              style="border-color: #333; font-size: 15px;">
-          </div>
+    <form id="eventForm" class="pt-3">
+      <div id="formSuccess" class="alert alert-success" style="display: none;"></div>
+      <div id="formError" class="alert alert-danger" style="display: none;"></div>
+      <div class="container">
+        <h1 class="text-center py-2">Event Form</h1>
+        <form id="eventForm">
+          <fieldset>
 
-          <div class="row">
-            <div class="form-group col-6">
-              <label style="font-size: 15px;">City</label>
-              <input type="text" id="cityInput" class="form-control" placeholder="Enter the city"
-                style="border-color: #333; font-size: 15px;">
-            </div>
-            <div class="form-group col-6">
-              <label style="font-size: 15px;">Postal Code</label>
-              <input type="text" id="zipInput" class="form-control" placeholder="Enter the postal code"
-                style="border-color: #333; font-size: 15px;">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-6">
-              <label for="currency-field" style="font-size: 15px;">Attendance Fee</label>
-              <input type="text" name="currency-field" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d{1,2})?$"
-                value="" data-type="currency" placeholder="$100.00" style="font-size: 15px; border-color: #333"
-                class="form-control">
-            </div>
-            <div class="form-group col-6">
-              <label style="font-size: 15px;">Attendee Limit</label>
-              <input type="number" id="attendeeInput" class="form-control" placeholder="Enter the limit"
-                style="border-color: #333; font-size: 15px;">
-            </div>
-
-          </div>
-
-          <!-- Datetimepicker -->
-          <div class="row">
-            <!-- <div class="content"> -->
-            <div class="form-group col-6">
-              <label style="font-size: 15px;">Date</label>
-              <div class="input-group date">
-                <input class="form-control" placeholder="MM/DD/YYYY" /
-                  style="border-color: #333; z-index: 0; font-size: 15px;" id="datepicker">
+            <div class="row mb-2">
+              <div class="form-group col-6">
+                <label style="font-size: 15px;">Host</label>
+                <input type="text" id="hostInput" class="form-control" placeholder="Enter host name"
+                  style="border-color: #333; font-size: 15px;">
+              </div>
+              <div class="form-group col-6">
+                <label style="font-size: 15px;">Sport</label>
+                <input type="text" id="sportInput" class="form-control" placeholder="Enter the sport"
+                  style="border-color: #333; font-size: 15px;">
               </div>
             </div>
-            <div class="form-group col-6">
-              <label style="font-size: 15px;">Time</label>
-              <div class="input-group time">
-                <input class="form-control" placeholder="HH:MM AM/PM" /
-                  style="border-color: #333; z-index: 0; font-size: 15px;" id="timepicker">
+
+            <div class="form-group">
+              <label style="font-size: 15px;">Event Title</label>
+              <input type="text" id="titleInput" class="form-control" placeholder="Enter the title of your event"
+                style="border-color: #333; font-size: 15px;">
+            </div>
+            <div class="form-group">
+              <label style="font-size: 15px;">Event Address</label>
+              <input type="text" id="addressInput" class="form-control" placeholder="Enter the address"
+                style="border-color: #333; font-size: 15px;">
+            </div>
+
+            <div class="row">
+              <div class="form-group col-6">
+                <label style="font-size: 15px;">City</label>
+                <input type="text" id="cityInput" class="form-control" placeholder="Enter the city"
+                  style="border-color: #333; font-size: 15px;">
+              </div>
+              <div class="form-group col-6">
+                <label style="font-size: 15px;">Postal Code</label>
+                <input type="text" id="zipInput" class="form-control" placeholder="Enter postal code"
+                  style="border-color: #333; font-size: 15px;">
               </div>
             </div>
-          </div>
-          <!-- Ends here -->
 
-          <div class="form-group">
-            <label style="font-size: 15px;">Description</label>
-            <textarea type="text" class="form-control" id="descriptionInput" placeholder="Enter the event description"
-              style="height: 70px; border-color: #333; font-size: 15px; "></textarea>
-          </div>
+            <div class="row">
+              <div class="form-group col-6">
+                <label for="currency-field" style="font-size: 15px;">Attendance Fee</label>
+                <input type="text" name="currency-field" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d{1,2})?$"
+                  value="" data-type="currency" placeholder="Enter Fee" style="font-size: 15px; border-color: #333"
+                  class="form-control">
+              </div>
+              <div class="form-group col-6">
+                <label style="font-size: 15px;">Attendee Limit</label>
+                <input type="number" id="attendeeInput" class="form-control" placeholder="Enter the limit"
+                  style="border-color: #333; font-size: 15px;">
+              </div>
 
-          <!-- Upload image -->
-          <div class="pb-5">
-            <label for="input-image" style="font-size: 15px;">Upload image</label>
-            <input type="file" accept="image/jpeg, image/png, img/jpg" id="input-image" style="font-size: 15px;">
-          </div>
+            </div>
 
-          <button class="btn bg-primary px-4" style="font-size: 15px; font-weight: bold; color: white;"
-            type="submit">Submit</button>
-        </fieldset>
-      </form>
-    </div>
+            <!-- Datetimepicker -->
+            <div class="row">
+              <!-- <div class="content"> -->
+              <div class="form-group col-6">
+                <label style="font-size: 15px;">Date</label>
+                <div class="input-group date">
+                  <input class="form-control" placeholder="MM/DD/YYYY" /
+                    style="border-color: #333; z-index: 0; font-size: 15px;" id="datepicker">
+                </div>
+              </div>
+              <div class="form-group col-6">
+                <label style="font-size: 15px;">Time</label>
+                <div class="input-group time">
+                  <input class="form-control" placeholder="HH:MM AM/PM" /
+                    style="border-color: #333; z-index: 0; font-size: 15px;" id="timepicker">
+                </div>
+              </div>
+            </div>
+            <!-- Ends here -->
+
+            <div class="form-group">
+              <label style="font-size: 15px;">Description</label>
+              <textarea type="text" class="form-control" id="descriptionInput" placeholder="Enter the event description"
+                style="height: 70px; border-color: #333; font-size: 15px; "></textarea>
+            </div>
+
+            <!-- Upload image -->
+            <div class="pb-5">
+              <label for="input-image" style="font-size: 15px;">Upload image</label>
+              <input type="file" accept="image/jpeg, image/png, img/jpg" id="input-image" style="font-size: 15px;">
+            </div>
+
+            <button class="btn bg-primary px-4" style="font-size: 15px; font-weight: bold; color: white;"
+              type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+    </form>
+
 
     <!-- Next Part Sliding Cards -->
     <!-- footer -->
     <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1;">
-      <div class="container p-4 pb-0">
-        <section class="mb-4">
+      <div class="container pb-0" style="background-color: #d9d9d9; height: fit-content; height: 50px;">
+        <div class="d-flex justify-content-between align-items-center h-100">
           <!-- Home -->
-          <div class="btn-group-vertical" role="group">
-            <a class="btn text-dark btn-floating m-1" href="index.html" role="button">
-              <i class="material-icons md-36">home</i>
-              <br>
-              Home
-            </a>
-          </div>
-
+          <a class="btn text-dark" href="index.html" role="button">
+            <i class="material-icons md-36">home</i>
+            <br>Home
+          </a>
+    
           <!-- Clubs -->
-          <div class="btn-group-vertical" role="group">
-            <a class="btn text-dark btn-floating m-1" href="clubs.html" role="button">
-              <i class="material-icons md-36">security</i>
-              <br>
-              Clubs
-            </a>
-          </div>
-
+          <a class="btn text-dark" href="clubs.html" role="button">
+            <i class="material-icons md-36">security</i>
+            <br>Clubs
+          </a>
+    
           <!-- Favorites -->
-          <div class="btn-group-vertical" role="group">
-            <a class="btn text-dark btn-floating m-1" href="favorites.html" role="button">
-              <i class="material-icons md-36">favorite</i>
-              <br>
-              Favorites
-            </a>
-          </div>
-
+          <a class="btn text-dark" href="favorites.html" role="button">
+            <i class="material-icons md-36">favorite</i>
+            <br>Favorites
+          </a>
+    
           <!-- Event Page -->
-          <div class="btn-group-vertical" role="group">
-            <a class="btn text-dark btn-floating m-1" href="eventpage.html" role="button">
-              <i class="material-icons md-36">event</i>
-              <br>
-              Event
-            </a>
-          </div>
-        </section>
+          <a class="btn text-dark" href="eventpage.html" role="button">
+            <i class="material-icons md-36">event</i>
+            <br>Event
+          </a>
+        </div>
       </div>
     </footer>
 

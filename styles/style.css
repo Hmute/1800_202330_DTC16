@@ -1,3 +1,6 @@
+#cardTemp:hover{
+  opacity: 0.7;
+}
 .card-img {
   object-fit: cover;
 }

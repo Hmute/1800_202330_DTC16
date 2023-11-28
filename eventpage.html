@@ -31,7 +31,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Other libraries go here -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
 
   <!-------------------------------------------------------->
@@ -48,84 +48,78 @@
 
 </head>
 
-<body style="padding-bottom: 100px;">
+<body style="padding-bottom: 100px; background-color: #F3EEEA;">
 
-    <!-- Top Part ------------------------------------------------------------------------------------>
-    <div class="container-fluid py-4 fixed-height">
-      <div class="row align-items-center">
-        <div class="col-10">
-    
-          <div class="search-box d-flex px-4 align-items-center">
-            <div class="search-icon pr-2"><i class="fa fa-search" aria-hidden="true"></i></div>
-            <input type="text" name="" id="search-bar" placeholder="Search"
-              class="border border-0 mr-2 search-bar flex-grow-1" autocomplete="off">
-          </div>
-    
-          <!-- <div class="col-auto ml-auto"> -->
-          <!-- This Icon will load the sideNavBar -->
-          <!-- <button onclick="eventSideNavBar()" style="position: relative; z-index: 99;" class="sideNavBarDiv"> -->
-          <!-- <i class="fa fa-user-circle " style="font-size: 48px; display: block;"></i> -->
-          <!-- </button> -->
-          <!-- </div> -->
-        </div>
-    
-        <!-- This is the pop up for the side bar ----Richard -->
-        <div class="col-2">
-          <div class="row"><i class="fa fa-user-circle " style="font-size: 48px;" id="profile"
-              style="position: fixed; z-index: 99;"></i>
-            <div id="sideBar" style="display: none;"></div>
-          </div>
-        </div>
-    
-      </div>
-    
-      <div class="container-fluid bg-white rounded-4 py-2 result-box" style="display: none;">
-        <div class="result-box">
+  <!-- Top Part ------------------------------------------------------------------------------------>
+  <div class="container-fluid py-4 fixed-height" style="background-color: #e9dbc4">
+    <div class="row align-items-center">
+      <div class="col-10">
+
+        <div class="search-box d-flex px-4 align-items-center">
+          <div class="search-icon pr-2"><i class="fa fa-search" aria-hidden="true"></i></div>
+          <input type="text" name="" id="search-bar" placeholder="Search"
+            class="border border-0 mr-2 search-bar flex-grow-1" autocomplete="off">
         </div>
       </div>
-    
+
+      <!-- This is the pop up for the side bar ----Richard -->
+      <div class="col-2">
+        <div class="row"><i class="fa fa-user-circle " style="font-size: 48px;" id="profile"
+            style="position: fixed; z-index: 99;"></i>
+          <div id="sideBar" style="display: none;"></div>
+        </div>
+      </div>
+
     </div>
+
+    <div class="container-fluid bg-white rounded-4 py-2 result-box" style="display: none;">
+      <div class="result-box">
+      </div>
+    </div>
+
+  </div>
   <!-- Next Part -->
 
   <!-- Buttons for event and gym  -->
-  <div class="container-fluid bg-dark">
+  <div class="container-fluid" style="background-color: #e9dbc4">
     <div class="row">
-      <button class="eventsbtn btn event-button col-6 py-2">Events</button>
-      <button class="gymbtn btn event-button col-6 py-2">Gyms</button>
+      <button class="eventsbtn btn event-button col-6 py-2" style=" font-size: 25px; background-color: #EBE3D5;">Events</button>
+      <button class="gymbtn btn event-button col-6 py-2" style=" font-size: 25px; background-color: #EBE3D5">Gyms</button>
     </div>
   </div>
   <!-- End of buttons -->
 
   <!-- Next Part -->
 
-  <div class="eventcard container mt-5">
-    <div class="thebox card border-dark-subtle" style="height: 200px; overflow: hidden;">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-6">
-            <div class="d-flex align-items-start">
-              <h3 class="box-title">
-                Upcoming
-              </h3>
-              <i class="far fa-heart fa-2x ml-3"></i>
-            </div>
-            <p class="boxinfo">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-              accusantium est unde necessitatibus vero itaque ex.
-            </p>
+  <div class="container-fluid pt-5 pr-2 eventcard bg-white" style="height: 200px;">
+    <div class="container h-100 p-0  border  border-1 border-dark-subtle"
+      style="border-radius: 5px; background-color: #EBE3D5;">
+      <div class="row align-content-center">
+        <div class="col-6 pr-0" style="padding-left: 25px;">
+          <h3 style="font-weight: bold;" class="m-0 pt-4 title"></h3>
+          <div class="pt-2">
+            Date: <span class="date" style="font-size: 10px;"></span>
           </div>
-          <div class="x col-6 d-flex flex-column align-items-center">
-            <p class="date">
-              Date and Time
-            </p>
-            <img src="images/Contentpic.png" alt="" width="100" class="logo">
+          <div class="pt-2">
+            Time: <span class="time"></span>
           </div>
+          <div class="pt-2">
+            Cost: <span class="cost"></span>
+          </div>
+          <div class="pt-2">
+            Attendees: <span class="attendees"></span>/<span class="limit"></span>
+          </div>
+          <div class="pt-2">
+            Location: <a href="#" class="location" style="color: blueviolet;"></a>
+          </div>
+        </div>
+        <div class="col pl-0 text-end pt-1 col-6" style="padding-right: 25px;">
+          <i class="far fa-heart" style="font-size: 22px;"></i>
+          <img src="" alt="" style="aspect-ratio: 3/3; object-fit: contain; width: 150px; padding-right: 12px;" class="logo">
         </div>
       </div>
     </div>
   </div>
-
-
 
   <!-- Ben's Part -->
   <div class="gymcard container mt-5 d-none">
@@ -164,48 +158,36 @@
 
 
 
-    <!-- footer -->
+  <!-- footer -->
     <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1;">
-      <div class="container p-4 pb-0">
-          <section class="mb-4">
-              <!-- Home -->
-              <div class="btn-group-vertical" role="group">
-                  <a class="btn text-dark btn-floating m-1" href="index.html" role="button">
-                      <i class="material-icons md-36">home</i>
-                      <br>
-                      Home
-                  </a>
-              </div>
-
-              <!-- Clubs -->
-              <div class="btn-group-vertical" role="group">
-                  <a class="btn text-dark btn-floating m-1" href="clubs.html" role="button">
-                      <i class="material-icons md-36">security</i>
-                      <br>
-                      Clubs
-                  </a>
-              </div>
-
-              <!-- Favorites -->
-              <div class="btn-group-vertical" role="group">
-                  <a class="btn text-dark btn-floating m-1" href="favorites.html" role="button">
-                      <i class="material-icons md-36">favorite</i>
-                      <br>
-                      Favorites
-                  </a>
-              </div>
-
-              <!-- Event Page -->
-              <div class="btn-group-vertical" role="group">
-                  <a class="btn text-dark btn-floating m-1" href="eventpage.html" role="button">
-                      <i class="material-icons md-36">event</i>
-                      <br>
-                      Event
-                  </a>
-              </div>
-          </section>
+      <div class="container pb-0" style="background-color:#EBE3D5; height: fit-content; height: 50px;">
+        <div class="d-flex justify-content-between align-items-center h-100">
+          <!-- Home -->
+          <a class="btn text-dark" href="index.html" role="button">
+            <i class="material-icons md-36">home</i>
+            <br>Home
+          </a>
+    
+          <!-- Clubs -->
+          <a class="btn text-dark" href="clubs.html" role="button">
+            <i class="material-icons md-36">security</i>
+            <br>Clubs
+          </a>
+    
+          <!-- Favorites -->
+          <a class="btn text-dark" href="favorites.html" role="button">
+            <i class="material-icons md-36">favorite</i>
+            <br>Favorites
+          </a>
+    
+          <!-- Event Page -->
+          <a class="btn text-dark" href="eventpage.html" role="button">
+            <i class="material-icons md-36">event</i>
+            <br>Event
+          </a>
+        </div>
       </div>
-  </footer>
+    </footer>
 
 
 

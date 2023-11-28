@@ -40,6 +40,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Link to styles of your own -->
@@ -51,7 +52,7 @@
 <body style="background-color: #F3EEEA;">
 
     <!-- Top Part -------------------------------#4D3C77---------------------------------------------------->
-    <div class="container-fluid py-4 fixed-height">
+    <div class="container-fluid py-4 fixed-height" style="background-color:#e9dbc4;">
         <div class="row align-items-center">
             <div class="col-10">
 
@@ -60,13 +61,6 @@
                     <input type="text" name="" id="search-bar" placeholder="Search"
                         class="border border-0 mr-2 search-bar flex-grow-1" autocomplete="off">
                 </div>
-
-                <!-- <div class="col-auto ml-auto"> -->
-                <!-- This Icon will load the sideNavBar -->
-                <!-- <button onclick="eventSideNavBar()" style="position: relative; z-index: 99;" class="sideNavBarDiv"> -->
-                <!-- <i class="fa fa-user-circle " style="font-size: 48px; display: block;"></i> -->
-                <!-- </button> -->
-                <!-- </div> -->
             </div>
 
             <!-- This is the pop up for the side bar ----Richard -->
@@ -114,40 +108,28 @@
     </div>
 
     </div>
+
     <!-- Next Part Sliding Cards - Richard - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-    <div class="swipeCardsDiv" style="z-index: -100;">
-    </div>
-
-    <template id="swipingCards">
-        <div class="card m-1" style="width: 25rem; height: 300px ; z-index: 1;" id="individual_card">
-            <div class="card-header">Profile</div>
-            <img class="card-img-top pt-3" src="./images/basketball.png" alt="Basketball Pic"
-                style="width: 100px; height: 100px; margin: auto;">
-            <div class="card-body">
-                <h3 class="card-title" id="name"> </h3>
-                <h5 class="card-subtitle" id="Sport"></h5>
-                <h5 class="card-subtitle" id="Parking"></h5>
-                <p class="card-text text-wrap" id="Information"></p>
-            </div>
-            <div class="card-footer" id=""><button type="button" class="btn btn-outline-success">View
-                    More</button></div>
+    <div class="container mt-4">
+        <div class="table-responsive border-0">
+            <table class="table table-striped" style="height: fit-content;"">
+                    <tbody style=" border: none">
+                <tr>
+                    <td style="border: none;">
+                        <div class="card-container d-flex" id="appendHere">
+                            <div class="container text-center mr-3"
+                                style="height: 100px; width: 180px; border-radius: 20px; background-color: #EBE3D5;" id="cardTemp">
+                                <h1 style="padding-top: 21%; font-size: 20px; font-weight: 900;" id="basketball"
+                                    class="copyThis">BASKETBALL</h1>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-    </template>
-    <!-- 
-                            <div class="card m-1" style="width: 25rem; height: 300px ; z-index: 1;" id="individual_card">
-                                <div class="card-header">Profile</div>
-                                <img class="card-img-top pt-3" src="./images/default-profile-picture.jpg" alt="Basketball Pic"
-                                    style="width: 100px; height: 100px; margin: auto;">
-                                <div class="card-body">
-                                    <h3 class="card-title" id="name"> </h3>
-                                    <h5 class="card-subtitle" id="Sport"></h5>
-                                    <h5 class="card-subtitle" id="Parking"></h5>
-                                    <p class="card-text text-wrap" id="Information"></p>
-                                </div>
-                                <div class="card-footer" id=""><button type="button" class="btn btn-outline-success">View
-                                        More</button></div>
-                            </div> -->
+    </div>
 
     <!-- End of Sliding Cards - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
@@ -232,47 +214,36 @@
 
     <!-- Next Part Sliding Cards -->
     <!-- footer -->
-    <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1;">
-        <div class="container p-4 pb-0" style="background-color: #F3EEEA;">
-            <section class="mb-4">
+    <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1; ">
+        <div class="container pb-0" style="background-color: #EBE3D5; height: fit-content; height: 50px;">
+            <div class="d-flex justify-content-between align-items-center h-100">
                 <!-- Home -->
-                <div class="btn-group-vertical" role="group">
-                    <a class="btn text-dark btn-floating m-1" href="index.html" role="button">
-                        <i class="material-icons md-36">home</i>
-                        <br>
-                        Home
-                    </a>
-                </div>
+                <a class="btn text-dark" href="index.html" role="button">
+                    <i class="material-icons md-36">home</i>
+                    <br>Home
+                </a>
 
                 <!-- Clubs -->
-                <div class="btn-group-vertical" role="group">
-                    <a class="btn text-dark btn-floating m-1" href="clubs.html" role="button">
-                        <i class="material-icons md-36">security</i>
-                        <br>
-                        Clubs
-                    </a>
-                </div>
+                <a class="btn text-dark" href="clubs.html" role="button">
+                    <i class="material-icons md-36">security</i>
+                    <br>Clubs
+                </a>
 
                 <!-- Favorites -->
-                <div class="btn-group-vertical" role="group">
-                    <a class="btn text-dark btn-floating m-1" href="favorites.html" role="button">
-                        <i class="material-icons md-36">favorite</i>
-                        <br>
-                        Favorites
-                    </a>
-                </div>
+                <a class="btn text-dark" href="favorites.html" role="button">
+                    <i class="material-icons md-36">favorite</i>
+                    <br>Favorites
+                </a>
 
                 <!-- Event Page -->
-                <div class="btn-group-vertical" role="group">
-                    <a class="btn text-dark btn-floating m-1" href="eventpage.html" role="button">
-                        <i class="material-icons md-36">event</i>
-                        <br>
-                        Event
-                    </a>
-                </div>
-            </section>
+                <a class="btn text-dark" href="eventpage.html" role="button">
+                    <i class="material-icons md-36">event</i>
+                    <br>Event
+                </a>
+            </div>
         </div>
     </footer>
+
 
     <!------------------------------>
     <!-- Stuff for body goes here -->
@@ -289,6 +260,7 @@
     <!-- Javascript Loader File for Sliding Cards -->
     <script src="./scripts/sideNavBarLoader.js"></script> <!-- -Richard-->
     <script src="./scripts/swipeCard.js"></script> <!-- -Richard-->
+    <script src="scripts/sliding_cards_loader.js"></script>
 </body>
 
 </html>
