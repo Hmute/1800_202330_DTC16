@@ -68,9 +68,9 @@ function createFavoriteCard() {
                             Location: <a href="${googleMapsUrl}" class="location" style="color: blueviolet;" target="_blank">${full_address}</a>
                           </div>
                         </div>
-                        <div class="col pl-0 text-end pt-1 col-6" style="padding-right: 20px;">
-                          <i class="far fa-heart" style="font-size: 22px;"></i>
-                          <img src="" alt="" style="aspect-ratio: 3/3; object-fit: contain; width: 150px; padding-right: 20px" class="logo">
+                        <div class="col pl-0 text-end pt-1 col-6" style="padding-right: 25px;">
+                          <i class="far fa-heart" style="font-size: 22px;display: block"></i>
+                          <img src="" alt="" style="aspect-ratio: 4/3; object-fit: contain; width: 200px; padding-right: 5px;" class="logo">
                         </div>
                       </div>
                     </div>

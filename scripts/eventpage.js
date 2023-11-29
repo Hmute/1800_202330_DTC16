@@ -58,7 +58,8 @@ function createGymCard(collectionId) {
             newCard.querySelector(".box-title").innerHTML = title;
             newCard.querySelector(".starnumber").innerHTML = rating;
             newCard.querySelector(".boxinfo").innerHTML = information;
-            newCard.querySelector(".card-href").href = "gympage.html?gymDocID"+gymDocId;
+            newCard.querySelector(".card-href").href = "gympage.html?gymdocID=" + docId;
+
 
             document.body.appendChild(newCard);
             counter++;

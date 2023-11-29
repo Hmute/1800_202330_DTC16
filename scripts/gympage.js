@@ -141,14 +141,11 @@ function scheduleStuff() {
 }
 
 function displayGymInfo() {
-    let params = new URL(window.location.href);
-    let ID = params.searchParams.get("gymDocId");
-  
-    if (ID === null) {
-      console.error("gymDocId parameter is missing from the URL");
-      // You might want to redirect the user or show an error message here
-      // return; // Un-comment this if you want to stop the function here
-    } else {
+    let params = new URL(window.location.href); //get URL of search bar
+
+    let ID = params.searchParams.get("gymdocID"); //get value for key "id"
+    console.log(ID);
+
     // doublecheck: is your collection called "Reviews" or "reviews"?
         db.collection("Gyms")
             .doc(ID)
