@@ -48,7 +48,7 @@ function createFavoriteCard() {
                 <div class="eventcard container mt-5">
                   <div class="container-fluid pl-2 pr-2 eventcard bg-white" style="height: 200px;">
                     <div class="container h-100 p-0  border  border-1 border-dark-subtle"
-                      style="border-radius: 5px; background-color: rgb(255, 227, 227);">
+                      style="border-radius: 5px; background-color: #EBE3D5;">
                       <div class="row align-content-center">
                         <div class="col-6 pr-0" style="padding-left: 25px;">
                           <h3 style="font-weight: bold;" class="m-0 pt-4 title">${title}</h3>

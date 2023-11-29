@@ -46,7 +46,7 @@ function createGymCard(collectionId) {
             var title = docData.data().Gym_name;
             var rating = docData.data().Rating;
             var information = docData.data().Information;
-            var docId = docData.id
+            var gymDocId = docData.id;
             let newCard;
 
             if (counter === 0) {
@@ -63,6 +63,7 @@ function createGymCard(collectionId) {
 
             document.body.appendChild(newCard);
             counter++;
+            
 
 
 
@@ -185,11 +186,4 @@ document.addEventListener("click", function (event) {
         }
     }
 });
-
-
-
-
-
-
-
 

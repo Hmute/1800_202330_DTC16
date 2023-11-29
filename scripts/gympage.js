@@ -147,22 +147,23 @@ function displayGymInfo() {
     console.log(ID);
 
     // doublecheck: is your collection called "Reviews" or "reviews"?
-    db.collection("Gyms")
-        .doc(ID)
-        .get()
-        .then(doc => {
-            gymName = doc.data().Gym_name;
-            dropIn = doc.data().dropin_info;
-            gymPrice = doc.data().gym_price_info;
-            gymSchedule = doc.data().Schedule;
+        db.collection("Gyms")
+            .doc(ID)
+            .get()
+            .then(doc => {
+                gymName = doc.data().Gym_name;
+                dropIn = doc.data().dropin_info;
+                gymPrice = doc.data().gym_price_info;
+                gymSchedule = doc.data().Schedule;
 
-            // only populate title, and image
-            document.getElementById("the-gym-name").innerHTML = gymName;
-            document.getElementById("drop-in-info").innerHTML = dropIn;
-            document.getElementById("price-info").innerHTML = gymPrice;
-            document.getElementById("the-gym-schedule").innerHTML = gymSchedule
+                // only populate title, and image
+                document.getElementById("the-gym-name").innerHTML = gymName;
+                document.getElementById("drop-in-info").innerHTML = dropIn;
+                document.getElementById("price-info").innerHTML = gymPrice;
+                document.getElementById("the-gym-schedule").innerHTML = gymSchedule
 
-        });
+            });
+}   
 }
 displayGymInfo();
 
@@ -170,7 +171,7 @@ displayGymInfo();
 
 function saveGymDocumentIDAndRedirect() {
     let params = new URL(window.location.href) //get the url from the search bar
-    let ID = params.searchParams.get("docID");
+    let ID = params.searchParams.get("gymDocId");
     localStorage.setItem('gymID', ID);
     window.location.href = 'gymreview.html';
 
