@@ -42,7 +42,7 @@ displayCardDynamically("Gyms");
 //"2187-2127 Kirkstone Rd"
 
 function displayCardDynamically2(collection) {
-    let cardTemplate = document.getElementById("indexCardTemplateGym");
+    let cardTemplate = document.getElementById("indexCardTemplate");
 
     db.collection(collection).get().then(events => {
         let cardCount = 0; // Counter variable to track the number of cards processed
