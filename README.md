@@ -29,13 +29,13 @@ Here are the steps ...
 Here are some known bugs:
 * You Cannot invite friends
 * There is a limited amount of sports
-* 
+* Users cannot interact with each other
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
-* ...
-* ...
+* That you can invite friends
+* that you can add the schedule of the league
+* add payment options
 	
 ## 7. Contents of Folder
 Content of the project folder:
@@ -91,16 +91,21 @@ It has the following subfolders and files:
     /eventpage.js            # handles event population in eventpage.html
     /favoritepage.js         # handles favorite population in favorites.html
     /firebaseAPI_DTC16.js    # handles firebase API
-    /
-    /blah.js                 #
-    /blah.js                 #
-    /blah.js                 #
-    /blah.js                 #
-    /blah.js                 #
-    /blah.js                 #
-    /blah.js                 #
+    /firebaseConfig.js       # handles firebase configuration
+    /gympage.js              # handles gym population in gympage.html
+    /main.js                 # handles main page population in index.html
+    /profile.js              # handles profile population in profile.html
+    /script.js               # handles script authentication
+    /sideNavBarLoader.js     # handles side navigation bar
+    /sideNavBarScript.js     # handles side navigation bar
+    /skeleton.js             # handles skeleton loader
+    /sliding_cards_loads.js  # handles sliding cards
+    /swipeCard.js            # handles swipe cards
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    /sideNavBar.css          # style for the Nav Bar
+    /style.css               # style of the app
+├── text                     # Folder for cards.html
+    /cards.html              # page for showing cards 
 
 
 
