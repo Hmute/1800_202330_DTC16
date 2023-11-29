@@ -52,14 +52,14 @@ function displayCardDynamically2(collection) {
                 var eventTitle = doc.data().title;
                 var sport = doc.data().sport;
                 var address = doc.data().address;
-                var imageSrc = doc.data().image;
+                // var imageSrc = doc.data().image;
 
                 let newCard = cardTemplate.content.cloneNode(true);
 
                 newCard.querySelector("#indexCardTitle").innerHTML = eventTitle;
                 newCard.querySelector("#indexCardDescription").innerHTML = sport;
                 newCard.querySelector("#indexCardTime").innerHTML = address;
-                newCard.querySelector("#indexCardImg").src = imageSrc;
+                // newCard.querySelector("#indexCardImg").src = imageSrc;
 
                 document.getElementById("indexCardHolder").appendChild(newCard);
 
@@ -71,38 +71,3 @@ function displayCardDynamically2(collection) {
 
 displayCardDynamically2("Events");
 
-// function displayCardDynamically2(collection) {
-//     let cardTemplate = document.getElementById("indexCardTemplateEvents");
-
-//     db.collection(collection).get().then(events => {
-//         let cardCount = 0; // Counter variable to track the number of cards processed
-
-//         events.forEach(doc => {
-//             if (cardCount < 2) { // Only process the first two documents
-//                 var eventTitle = doc.data().title || "Default Title";
-//                 var sport = doc.data().sport || "Default Sport";
-//                 var address = doc.data().address || "Default Address";
-//                 var imageSrc = doc.data().image || "./images/default-image.png";
-
-//                 let newCard = cardTemplate.content.cloneNode(true);
-
-//                 newCard.querySelector("#indexCardTitle").innerHTML = eventTitle;
-//                 newCard.querySelector("#indexCardDescription").innerHTML = sport;
-//                 newCard.querySelector("#indexCardTime").innerHTML = address;
-//                 newCard.querySelector("#indexCardImg").src = imageSrc;
-
-//                 document.getElementById("indexCardHolder").appendChild(newCard);
-
-//                 cardCount++;
-//             } else {
-//                 // Handle the case where more than two documents are available (optional)
-//             }
-//         });
-
-//         if (cardCount === 0) {
-//             // Handle the case where no documents are available (optional)
-//         }
-//     });
-// }
-
-// displayCardDynamically2("Events");
