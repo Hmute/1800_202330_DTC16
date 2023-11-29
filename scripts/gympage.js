@@ -164,7 +164,7 @@ function displayGymInfo() {
 
             });
 }   
-}
+
 displayGymInfo();
 
 

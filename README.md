@@ -91,7 +91,6 @@ It has the following subfolders and files:
     /eventpage.js            # handles event population in eventpage.html
     /favoritepage.js         # handles favorite population in favorites.html
     /firebaseAPI_DTC16.js    # handles firebase API
-    /firebaseConfig.js       # handles firebase configuration
     /gympage.js              # handles gym population in gympage.html
     /main.js                 # handles main page population in index.html
     /profile.js              # handles profile population in profile.html
