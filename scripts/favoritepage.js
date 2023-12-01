@@ -45,36 +45,29 @@ function createFavoriteCard() {
 
               divElement.setAttribute("data-document-id", currentDocId);
               divElement.innerHTML = `
-                <div class="eventcard container mt-5">
-                  <div class="container-fluid pl-2 pr-2 eventcard bg-white" style="height: 200px;">
-                    <div class="container h-100 p-0  border  border-1 border-dark-subtle"
-                      style="border-radius: 5px; background-color: #EBE3D5;">
-                      <div class="row align-content-center">
-                        <div class="col-6 pr-0" style="padding-left: 25px;">
-                          <h3 style="font-weight: bold;" class="m-0 pt-4 title">${title}</h3>
-                          <div class="pt-2">
-                            Date: <span class="date" style="font-size: 10px;">${date}</span>
-                          </div>
-                          <div class="pt-2">
-                            Time: <span class="time">${time}</span>
-                          </div>
-                          <div class="pt-2">
-                            Cost: <span class="cost">${cost}</span>
-                          </div>
-                          <div class="pt-2">
-                            Attendees: <span class="attendees">${attendees}</span>/<span class="limit">${limit}</span>
-                          </div>
-                          <div class="pt-2">
-                            Location: <a href="${googleMapsUrl}" class="location" style="color: blueviolet;" target="_blank">${full_address}</a>
-                          </div>
-                        </div>
-                        <div class="col pl-0 text-end pt-1 col-6" style="padding-right: 25px;">
-                          <i class="far fa-heart" style="font-size: 22px;display: block"></i>
-                          <img src="" alt="" style="aspect-ratio: 4/3; object-fit: contain; width: 200px; padding-right: 5px;" class="logo">
-                        </div>
-                      </div>
-                    </div>
-                  </div>`;
+                <div class="container border-dark-subtle fixed-height eventcard mt-5"
+    style="height: 440px;border-style: solid; border-width: 0.01ch; font-size: 15px;">
+    <img src="${imageSrc}" height="280px" width="414px" class="pt-2 logo" style="border-radius: 15px;">
+    <h1 style="display: inline-block;" class="pt-2 pr-2 title"><b>${title}</b></h1>
+    <i class="far fa-heart" style="font-size: 25px;"></i>
+    <div class="row">
+      <div class="col-6">
+        Date: <span class="date">${date}</span></div>
+      <div class="col-6">
+        Time: <span class="time">${time}</span></div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        Attendees: <span class="attendees">${attendees}</span>/<span class="limit">${limit}</span> </div>
+      <div class="col-6">
+        Cost: <span class="cost">${cost}</span></div>
+    </div>
+    <p>Location: <a href="${googleMapsUrl}" class="location" style="color: violet;">${full_address}</a></p>
+    <button class="mt-2 btn bg-primary viewMore" style="color: white; font-size: 15px;">View More</button>
+  </div>
+              `
+                  
+                  ;
               divElement.querySelector(".far").id = currentDocId;
               var imgElement = divElement.querySelector("img.logo");
               if (imgElement && imageSrc) {

@@ -48,7 +48,7 @@
 
 </head>
 
-<body style="padding-bottom: 100px; background-color: #F3EEEA;">
+<body style="padding-bottom: 70px; background-color: #F3EEEA;">
 
   <!-- Top Part ------------------------------------------------------------------------------------>
   <div class="container-fluid py-4 fixed-height" style="background-color: #e9dbc4">
@@ -83,42 +83,35 @@
   <!-- Buttons for event and gym  -->
   <div class="container-fluid" style="background-color: #e9dbc4">
     <div class="row">
-      <button class="eventsbtn btn event-button col-6 py-2" style=" font-size: 25px; background-color: #EBE3D5;">Events</button>
-      <button class="gymbtn btn event-button col-6 py-2" style=" font-size: 25px; background-color: #EBE3D5">Gyms</button>
+      <button class="eventsbtn btn event-button col-6 py-2"
+        style=" font-size: 25px; background-color: #EBE3D5;">Events</button>
+      <button class="gymbtn btn event-button col-6 py-2"
+        style=" font-size: 25px; background-color: #EBE3D5">Gyms</button>
     </div>
   </div>
   <!-- End of buttons -->
 
   <!-- Next Part -->
 
-  <div class="container-fluid pt-5 pr-2 eventcard bg-white" style="height: 200px;">
-    <div class="container h-100 p-0  border  border-1 border-dark-subtle"
-      style="border-radius: 5px; background-color: #EBE3D5;">
-      <div class="row align-content-center">
-        <div class="col-6 pr-0" style="padding-left: 25px;">
-          <h3 style="font-weight: bold;" class="m-0 pt-4 title"></h3>
-          <div class="pt-2">
-            Date: <span class="date" style="font-size: 10px;"></span>
-          </div>
-          <div class="pt-2">
-            Time: <span class="time"></span>
-          </div>
-          <div class="pt-2">
-            Cost: <span class="cost"></span>
-          </div>
-          <div class="pt-2">
-            Attendees: <span class="attendees"></span>/<span class="limit"></span>
-          </div>
-          <div class="pt-2">
-            Location: <a href="#" class="location" style="color: blueviolet;"></a>
-          </div>
-        </div>
-        <div class="col pl-0 text-end pt-1 col-6" style="padding-right: 25px;">
-          <i class="far fa-heart" style="font-size: 22px; display: block;"></i>
-          <img src="" alt="" style="aspect-ratio: 4/3; object-fit: contain; width: 200px;" class="logo">
-        </div>
-      </div>
+  <div class="container border-dark-subtle fixed-height eventcard mt-5"
+    style="height: 440px;border-style: solid; border-width: 0.01ch; font-size: 15px;">
+    <img src="" height="280px" width="414px" class="pt-2 logo" style="border-radius: 15px;">
+    <h1 style="display: inline-block;" class="pt-2 pr-2 title"><b>Island Boy</b></h1>
+    <i class="far fa-heart" style="font-size: 25px;"></i>
+    <div class="row">
+      <div class="col-6">
+        Date: <span class="date"></span></div>
+      <div class="col-6">
+        Time: <span class="time"></span></div>
     </div>
+    <div class="row">
+      <div class="col-6">
+        Attendees: <span class="attendees"></span>/<span class="limit"></span> </div>
+      <div class="col-6">
+        Cost: <span class="cost"></span></div>
+    </div>
+    <p>Location: <a href="#" class="location" style="color: violet;"></a></p>
+    <button class="mt-2 btn bg-primary viewMore" style="color: white; font-size: 15px;">View More</button>
   </div>
 
   <!-- Ben's Part -->
@@ -159,40 +152,40 @@
 
 
   <!-- footer -->
-    <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1;">
-      <div class="container pb-0" style="background-color:#EBE3D5; height: fit-content; height: 50px;">
-        <div class="d-flex justify-content-between align-items-center h-100">
-          <!-- Home -->
-          <a class="btn text-dark" href="index.html" role="button">
-            <i class="material-icons md-36">home</i>
-            <br>Home
-          </a>
-    
-          <!-- Clubs -->
-          <a class="btn text-dark" href="clubs.html" role="button">
-            <i class="material-icons md-36">security</i>
-            <br>Clubs
-          </a>
-    
-          <!-- Favorites -->
-          <a class="btn text-dark" href="favorites.html" role="button">
-            <i class="material-icons md-36">favorite</i>
-            <br>Favorites
-          </a>
-    
-          <!-- Event Page -->
-          <a class="btn text-dark" href="eventpage.html" role="button">
-            <i class="material-icons md-36">event</i>
-            <br>Event
-          </a>
-        </div>
+  <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1;">
+    <div class="container pb-0" style="background-color:#EBE3D5; height: fit-content; height: 50px;">
+      <div class="d-flex justify-content-between align-items-center h-100">
+        <!-- Home -->
+        <a class="btn text-dark" href="index.html" role="button">
+          <i class="material-icons md-36">home</i>
+          <br>Home
+        </a>
+
+        <!-- Clubs -->
+        <a class="btn text-dark" href="clubs.html" role="button">
+          <i class="material-icons md-36">security</i>
+          <br>Clubs
+        </a>
+
+        <!-- Favorites -->
+        <a class="btn text-dark" href="favorites.html" role="button">
+          <i class="material-icons md-36">favorite</i>
+          <br>Favorites
+        </a>
+
+        <!-- Event Page -->
+        <a class="btn text-dark" href="eventpage.html" role="button">
+          <i class="material-icons md-36">event</i>
+          <br>Event
+        </a>
       </div>
-    </footer>
+    </div>
+  </footer>
 
 
 
-  <script src="/scripts/firebaseAPI_DTC16.js"></script>
-  <script src="/scripts/eventpage.js"></script>
+  <script src="scripts/firebaseAPI_DTC16.js"></script>
+  <script src="scripts/eventpage.js"></script>
 
   <script src="./scripts/script.js"></script>
   <script src="scripts/autocomplete.js"></script>
