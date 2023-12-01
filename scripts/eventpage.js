@@ -60,7 +60,7 @@ function createGymCard(collectionId) {
             newCard.querySelector(".starnumber").innerHTML = rating;
             newCard.querySelector(".boxinfo").innerHTML = information;
             newCard.querySelector("#gym-card-image").innerHTML = `
-            <img src="${gymImage}" alt="" width="100" class="logo">
+            <img src="${gymImage}" alt="" class="img-fluid" id"logo-image">
             `
             newCard.querySelector(".card-href").href = "gympage.html?gymdocID=" + docID;
 
