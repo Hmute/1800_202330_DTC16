@@ -529,3 +529,8 @@ body {
 #days {
   font-style: italic;
 }
+
+#gym-image {
+  border: solid ;
+  border-radius: 20px;
+}

@@ -172,7 +172,7 @@ function displayGymInfo() {
                 <iframe id="gym-gps" src="${gymLocation}" width="300" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 `
                 document.getElementById("the-gym-images").innerHTML = `
-                <img src="${gymImage}" alt="" class="responsive">
+                <img src="${gymImage}" alt="" class="responsive" id= "gym-image">
                 `
                 document.getElementById("monday").innerText = monday
                 document.getElementById("tuesday").innerText = tuesday
