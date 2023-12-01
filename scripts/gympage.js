@@ -155,15 +155,32 @@ function displayGymInfo() {
             .get()
             .then(doc => {
                 gymName = doc.data().Gym_name;
-                dropIn = doc.data().dropin_info;
-                gymPrice = doc.data().gym_price_info;
-                gymSchedule = doc.data().Schedule;
+                gymLocation = doc.data().gymLocation;
+                gymImage = doc.data().gymImage;
+                monday = doc.data().Monday;
+                tuesday = doc.data().Tuesday;
+                wednesday = doc.data().Wednesday;
+                thursday = doc.data().Thursday;
+                friday = doc.data().Friday;
+                saturday = doc.data().Saturday;
+                sunday = doc.data().Sunday
+                console.log(gymImage)
 
                 // only populate title, and image
                 document.getElementById("the-gym-name").innerHTML = gymName;
-                document.getElementById("drop-in-info").innerHTML = dropIn;
-                document.getElementById("price-info").innerHTML = gymPrice;
-                document.getElementById("the-gym-schedule").innerHTML = gymSchedule
+                document.getElementById("the-gym-location").innerHTML = `
+                <iframe id="gym-gps" src="${gymLocation}" width="300" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                `
+                document.getElementById("the-gym-images").innerHTML = `
+                <img src="${gymImage}" alt="" class="responsive">
+                `
+                document.getElementById("monday").innerText = monday
+                document.getElementById("tuesday").innerText = tuesday
+                document.getElementById("wednesday").innerText = wednesday
+                document.getElementById("thursday").innerText = thursday
+                document.getElementById("friday").innerText = friday
+                document.getElementById("saturday").innerText = saturday
+                document.getElementById("sunday").innerText = sunday
 
             });
 }   

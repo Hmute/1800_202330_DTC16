@@ -47,6 +47,7 @@ function createGymCard(collectionId) {
             var rating = docData.data().Rating;
             var information = docData.data().Information;
             var docID= docData.id;
+            var gymImage = docData.data().gymImage;
             let newCard;
 
             if (counter === 0) {
@@ -58,6 +59,9 @@ function createGymCard(collectionId) {
             newCard.querySelector(".box-title").innerHTML = title;
             newCard.querySelector(".starnumber").innerHTML = rating;
             newCard.querySelector(".boxinfo").innerHTML = information;
+            newCard.querySelector("#gym-card-image").innerHTML = `
+            <img src="${gymImage}" alt="" width="100" class="logo">
+            `
             newCard.querySelector(".card-href").href = "gympage.html?gymdocID=" + docID;
 
 
