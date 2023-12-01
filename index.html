@@ -195,19 +195,18 @@
                     <div class="row">
                         <div class="col-6">
                             <h1 class="box-title " id="indexCardTitle" style="font-size: 26px;">
-                                Title of Event
+
                             </h1>
                             <p class="boxinfo fs-4" id="indexCardDescription">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum maxime ratione,
-                                accusantium
-                                est unde necessitatibus vero itaque ex.
+
                             </p>
                         </div>
                         <div class="x col-6 d-flex flex-column align-items-center" id="indexCardTime">
                             <p class="date" >
-                                Date and Time
+
                             </p>
-                            <img src="./images/gym-logo.png" alt="" width="100" class="logo" id="indexCardImg">
+                            <img src="" id="#indexImg">
+                            
                         </div>
                     </div>
                 </div>
@@ -215,6 +214,37 @@
         </div>
     </template>
 
+    <div class="container-fluid pt-5 pr-2 eventcard bg-white" style="height: 200px;">
+        <div class="container h-100 p-0  border  border-1 border-dark-subtle"
+            style="border-radius: 5px; background-color: #EBE3D5;">
+            <div class="row align-content-center">
+                <div class="col-6 pr-0" style="padding-left: 25px;">
+                    <h3 style="font-weight: bold;" class="m-0 pt-4 title"></h3>
+                    <div class="pt-2">
+                        Date: <span class="date" style="font-size: 10px;"></span>
+                    </div>
+                    <div class="pt-2">
+                        Time: <span class="time"></span>
+                    </div>
+                    <div class="pt-2">
+                        Cost: <span class="cost"></span>
+                    </div>
+                    <div class="pt-2">
+                        Attendees: <span class="attendees"></span>/<span class="limit"></span>
+                    </div>
+                    <div class="pt-2">
+                        Location: <a href="#" class="location" style="color: blueviolet;"></a>
+                    </div>
+                </div>
+                <div class="col pl-0 text-end pt-1 col-6" style="padding-right: 25px;">
+                    <i class="far fa-heart" style="font-size: 22px; display: block;"></i>
+                    <img src="" alt="" style="aspect-ratio: 4/3; object-fit: contain; width: 200px;" class="logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Next Part ---------------------------------------------------------------------------------->
     <!-- footer -->
     <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1; ">
         <div class="container pb-0" style="background-color: #EBE3D5; height: fit-content; height: 50px;">
@@ -261,9 +291,8 @@
     <script src="scripts/autocomplete.js"></script>
     <!-- Javascript Loader File for Sliding Cards -->
     <script src="./scripts/sideNavBarLoader.js"></script> <!-- -Richard-->
-    <script src="./scripts/swipeCard.js"></script> <!-- -Richard-->
     <script src="scripts/sliding_cards_loader.js"></script>
-    <script src="scripts/homeCards.js"></script>
+    <script src="scripts/homeIndexCards.js"></script>
 </body>
 
 </html>
