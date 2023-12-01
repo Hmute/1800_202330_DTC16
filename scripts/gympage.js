@@ -1,19 +1,22 @@
-theLocation = document.getElementsByClassName("location")[0]
-theLocation.addEventListener("click", locationStuff)
+theReview = document.getElementsByClassName("review")[0]
+theReview.addEventListener("click", reviewStuff)
 
-theInformation = document.getElementsByClassName("information")[0]
-theInformation.addEventListener("click", informationStuff)
+// theReview = document.getElementById("gymreview")
+// theReview.addEventListener("click", reviewStuff)
+
+theLocation = document.getElementsByClassName("location")[0]
+theLocation.addEventListener("click", locationstuff)
 
 theSchedule = document.getElementsByClassName("schedule")[0]
 theSchedule.addEventListener("click", scheduleStuff)
 
 
-function locationStuff() {
+function reviewStuff() {
 
-    locationbtn()
+    reviewbtn()
 
-    locationDescription = document.querySelectorAll(".gym-location")
-    locationDescription.forEach(function (location) {
+    reviewDescription = document.querySelectorAll(".gym-reviews")
+    reviewDescription.forEach(function (location) {
         location.style.display = "block"
         location.classList.remove("d-none")
 
@@ -26,7 +29,7 @@ function locationStuff() {
 
     })
 
-    infoDescription = document.querySelectorAll(".gym-info")
+    infoDescription = document.querySelectorAll(".gym-location")
     infoDescription.forEach(function (info) {
 
         info.style.display = "none"
@@ -34,7 +37,7 @@ function locationStuff() {
     })
 }
 
-function locationbtn() {
+function reviewbtn() {
 
     navItems = document.querySelectorAll(".gym-info-tabs .nav-link")
     navItems.forEach(function (navItem) {
@@ -45,17 +48,17 @@ function locationbtn() {
 
     })
 
-    locationElement = document.getElementsByClassName("location")[0]
-    locationElement.classList.add("active")
+    reviewElement = document.getElementsByClassName("review")[0]
+    reviewElement.classList.add("active")
 
 
 }
 
-function informationStuff() {
+function locationstuff() {
 
-    informationbtn()
+    locationbtn()
 
-    infoDescription = document.querySelectorAll(".gym-info")
+    infoDescription = document.querySelectorAll(".gym-location")
     infoDescription.forEach(function (info) {
 
         info.style.display = "block"
@@ -63,7 +66,7 @@ function informationStuff() {
 
     })
 
-    locationDescription = document.querySelectorAll(".gym-location")
+    locationDescription = document.querySelectorAll(".gym-reviews")
     locationDescription.forEach(function (location) {
 
         location.style.display = "none"
@@ -79,7 +82,7 @@ function informationStuff() {
 
 }
 
-function informationbtn() {
+function locationbtn() {
 
     event.preventDefault()
 
@@ -90,8 +93,8 @@ function informationbtn() {
         navItem.classList.remove("active")
     })
 
-    informationElement = document.getElementsByClassName("information")[0]
-    informationElement.classList.add("active")
+    locationElement = document.getElementsByClassName("location")[0]
+    locationElement.classList.add("active")
 
 }
 
@@ -124,14 +127,14 @@ function scheduleStuff() {
 
     })
 
-    infoDescription = document.querySelectorAll(".gym-info")
+    infoDescription = document.querySelectorAll(".gym-location")
     infoDescription.forEach(function (info) {
 
         info.style.display = "none"
 
     })
 
-    locationDescription = document.querySelectorAll(".gym-location")
+    locationDescription = document.querySelectorAll(".gym-reviews")
     locationDescription.forEach(function (location) {
 
         location.style.display = "none"

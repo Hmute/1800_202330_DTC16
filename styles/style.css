@@ -392,14 +392,13 @@ body {
   height: auto;
 }
 
-.information,
 .location,
-.schedule,
-.reviews {
+.review,
+.schedule {
   color: black;
 }
 
-.location:hover {
+.review:hover {
 
   color: white;
 }
@@ -409,7 +408,7 @@ body {
   color: white;
 }
 
-.reviews:hover {
+.location:hover {
   color: white;
 }
 
