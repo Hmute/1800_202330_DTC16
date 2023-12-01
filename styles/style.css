@@ -525,3 +525,7 @@ body {
 #gym-gps {
   width: 100%;
 }
+
+#days {
+  font-style: italic;
+}
