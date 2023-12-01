@@ -170,10 +170,13 @@ displayGymInfo();
 
 
 function saveGymDocumentIDAndRedirect() {
-    let params = new URL(window.location.href) //get the url from the search bar
-    let ID = params.searchParams.get("gymDocId");
+    let params = new URL(window.location.href); //get URL of search bar
+
+    let ID = params.searchParams.get("gymdocID"); //get value for key "id"
+    console.log(ID);
+
     localStorage.setItem('gymID', ID);
-    window.location.href = 'gymreview.html';
+    window.location.href= "gymreview.html"
+
 
 }
-

@@ -1,4 +1,5 @@
 var gymID = localStorage.getItem('gymID')
+console.log(gymID)
 
 function displayGymName(id) {
     db.collection("Gyms")
