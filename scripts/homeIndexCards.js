@@ -57,3 +57,41 @@ function createEventCard(collectionId) {
     });
 }
 createEventCard("Events")
+
+
+function displayCardDynamically2(collection) {
+    let card = document.getElementById("indexCardTemplate");
+
+    db.collection(collection).get().then(events => {
+        let cardCount = 0; // Counter variable to track the number of cards processed
+
+        events.forEach(doc => {
+            if (cardCount < 2) { // Only process the first two documents
+                var eventTitle = doc.data().Gym_name;
+                var information = doc.data().Information;
+                var rating = doc.data().Rating;
+                var imageSrc = doc.data().gymImage;
+
+                console.log((imageSrc));
+                let cardTemplate = card.content.cloneNode(true);
+
+                // Assuming you want to change the src of the existing image with id "indexImg"
+                // var indexImg = document.getElementById("indexImg");
+                // indexImg.src = imageSrc;
+                // indexImg.alt = eventTitle; // Set alt attribute if needed
+
+                cardTemplate.querySelector("#indexCardTitle").innerHTML = eventTitle;
+                cardTemplate.querySelector("#indexCardDescription").innerHTML = information;
+                cardTemplate.querySelector("#indexCardTime").innerHTML = rating;
+                // cardTemplate.querySelector("#indexImg").innerHTML = imageSrc; #indexImg is the id of the image tag in the template
+                // Rest of your code...
+
+                document.querySelector("#indexCardHolder").appendChild(cardTemplate);
+                
+                cardCount++;
+            }
+        });
+    });
+}
+
+displayCardDynamically2("Gyms");
