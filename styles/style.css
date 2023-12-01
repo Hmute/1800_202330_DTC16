@@ -511,3 +511,13 @@ body {
   font-size: 24px; /* Adjust title size */
   margin-bottom: 5px; /* Space below the title */
 }
+
+ 
+/* Gym Review cards */
+
+.review-card {
+  border: solid;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+}
