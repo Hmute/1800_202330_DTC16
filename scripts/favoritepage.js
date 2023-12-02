@@ -62,7 +62,7 @@ function createFavoriteCard() {
       <div class="col-6">
         Cost: <span class="cost">${cost}</span></div>
     </div>
-    <p>Location: <a href="${googleMapsUrl}" class="location" style="color: violet;">${full_address}</a></p>
+    <p>Location: <a href="${googleMapsUrl}" class="location" style="color: violet;" target="_blank">${full_address}</a></p>
     <button class="mt-2 btn bg-primary viewMore" style="color: white; font-size: 15px;">View More</button>
   </div>
               `
@@ -76,6 +76,7 @@ function createFavoriteCard() {
 
               updateHeartIcon(user, currentDocId, divElement); // Update the heart icon
               favoriteCardContainer.appendChild(divElement);
+              attachViewMoreListeners()
             });
           });
         }

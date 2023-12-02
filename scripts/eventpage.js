@@ -128,7 +128,7 @@ function createEventCard(collectionId) {
             })
             document.body.appendChild(newCard)
             counter++;
-
+            attachViewMoreListeners();
 
         });
     });
@@ -190,4 +190,6 @@ document.addEventListener("click", function (event) {
         }
     }
 });
+
+
 

@@ -81,7 +81,7 @@
   <!-- Next Part -->
 
   <!-- Buttons for event and gym  -->
-  <div class="container-fluid" style="background-color: #e9dbc4">
+  <div class="container-fluid gymPortal" style="background-color: #e9dbc4">
     <div class="row">
       <button class="eventsbtn btn event-button col-6 py-2"
         style=" font-size: 25px; background-color: #EBE3D5;">Events</button>
@@ -110,8 +110,43 @@
       <div class="col-6">
         Cost: <span class="cost"></span></div>
     </div>
-    <p>Location: <a href="#" class="location" style="color: violet;"></a></p>
+    <p>Location: <a href="#" class="location" style="color: violet;" target="_blank"></a></p>
     <button class="mt-2 btn bg-primary viewMore" style="color: white; font-size: 15px;">View More</button>
+  </div>
+
+
+  <div class="viewMoreResult" style="display: none;">
+    <div class="container pt-3">
+      <img src="images/basketball_pickup.png" alt="" width="400px" height="300px" style="border-radius: 20px;"
+        class="mt-4 logo">
+
+      <div class="text-center pt-2">
+        <h1 style="display: inline-block; font-size: 30px;" class="mr-3"><b class="title">Island Boys</b></h1><i
+          class="far fa-heart" style="font-size: 25px;"></i>
+      </div>
+
+      <div class="text-center" style="text-align: center;">
+        <button class="btn mr-4" style="font-size: 20px;">
+          <i class="fa fa-user-plus"></i>
+          <p><b>Join Event</b></p>
+        </button>
+        <span id="attendees" style="font-size: 20px;"></span>/<span id="limit" style="font-size: 20px;"></span>
+      </div>
+
+      <div style="border: solid; height: 400px;" class="border-1 border-dark-subtle mt-4 fixed-height">
+        <div class="border-dark container-fluid p-0" style="background-color: #d9d9d9; height: fit-content;"">
+          <button style=" width: 100px; height: 50px; font-size: 15px;" class="btn viewDesc">Description</button>
+          <button style="width: 95px; height: 50px; font-size: 15px;" class="btn viewEss">Essentials</button>
+          <button style="width: 95px; height: 50px; font-size: 15px;" class="btn viewMap">Map</button>
+          <button style="width: 95px; height: 50px; font-size: 15px;" class="btn viewAtt">Attendees</button>
+        </div>
+
+        <div class="appendDesc"></div>
+        <div class="appendEss"></div>
+        <div class="appendMap"></div>
+        <div class="appendAtt"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Ben's Part -->
@@ -146,7 +181,7 @@
       </div>
     </div>
   </div>
-  
+
 
 
 
@@ -186,7 +221,7 @@
 
   <script src="scripts/firebaseAPI_DTC16.js"></script>
   <script src="scripts/eventpage.js"></script>
-
+  <script src="scripts/viewmore.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="scripts/autocomplete.js"></script>
   <script src="./scripts/sliding_cards_loader.js"></script>

@@ -82,19 +82,19 @@ function to12HourTime(time) {
   var date = new Date();
   date.setHours(hours, minutes, 0, 0); // Set hours and minutes, seconds and ms to 0
 
-  // Format hours for 12-hour time format
+
   var period = date.getHours() >= 12 ? 'PM' : 'AM';
-  var hour12 = date.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour time format
-  var minuteFormatted = date.getMinutes().toString().padStart(2, '0'); // Ensure minutes are two digits
+  var hour12 = date.getHours() % 12 || 12; 
+  var minuteFormatted = date.getMinutes().toString().padStart(2, '0'); 
 
   return `${hour12}:${minuteFormatted} ${period}`;
 }
 
-// Form submission handling
+
 document.getElementById("eventForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
-  // Collect form data
+
   var host = document.getElementById("hostInput").value.trim();
   var sport = document.getElementById("sportInput").value.trim().toLowerCase();
   var title = document.getElementById("titleInput").value.trim();
@@ -110,7 +110,7 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
   time = to12HourTime(time)
 
   console.log(time)
-  // Validate required fields
+  
   if (!host || !sport || !title || !address || !city || !postalCode || !date || !time || !description || !cost || !limit) {
     handleFormMessage(false, "Please fill in all the fields.");
     return;
