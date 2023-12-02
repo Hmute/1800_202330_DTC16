@@ -1,9 +1,10 @@
+// Check if the user is on a mobile device
 if (/Mobi/.test(navigator.userAgent)) {
-  // if mobile device, use native pickers
+  // Use native date and time pickers for mobile
   $(".date input").attr("type", "date");
   $(".time input").attr("type", "time");
 } else {
-  // if desktop device, use DateTimePicker
+  // Use DateTimePicker for desktop
   $("#datepicker").datetimepicker({
     useCurrent: false,
     format: "DD-MMM-YYYY",
@@ -14,8 +15,9 @@ if (/Mobi/.test(navigator.userAgent)) {
       today: 'todayText',
     }
   });
+
   $("#timepicker").datetimepicker({
-    format: "LT",
+    format: 'LT', // 12-hour format with AM/PM
     icons: {
       up: "fa fa-chevron-up",
       down: "fa fa-chevron-down"
@@ -23,6 +25,7 @@ if (/Mobi/.test(navigator.userAgent)) {
   });
 }
 
+// Currency formatting
 $("input[data-type='currency']").on({
   keyup: function () {
     formatCurrency($(this));
@@ -32,84 +35,66 @@ $("input[data-type='currency']").on({
   }
 });
 
-
 function formatNumber(n) {
-  // format number 1000000 to 1,234,567
-  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  // Format number with commas
+  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-
 function formatCurrency(input, blur) {
-  // appends $ to value, validates decimal side
-  // and puts cursor back in right position.
-
-  // get input value
   var input_val = input.val();
-
-  // don't validate empty input
   if (input_val === "") { return; }
 
-  // original length
   var original_len = input_val.length;
-
-  // initial caret position 
   var caret_pos = input.prop("selectionStart");
 
-  // check for decimal
   if (input_val.indexOf(".") >= 0) {
-
-    // get position of first decimal
-    // this prevents multiple decimals from
-    // being entered
     var decimal_pos = input_val.indexOf(".");
-
-    // split number by decimal point
     var left_side = input_val.substring(0, decimal_pos);
     var right_side = input_val.substring(decimal_pos);
 
-    // add commas to left side of number
     left_side = formatNumber(left_side);
-
-    // validate right side
     right_side = formatNumber(right_side);
 
-    // On blur make sure 2 numbers after decimal
     if (blur === "blur") {
       right_side += "00";
     }
 
-    // Limit decimal to only 2 digits
     right_side = right_side.substring(0, 2);
-
-    // join number by .
     input_val = "$" + left_side + "." + right_side;
 
   } else {
-    // no decimal entered
-    // add commas to number
-    // remove all non-digits
     input_val = formatNumber(input_val);
     input_val = "$" + input_val;
-
-    // final formatting
     if (blur === "blur") {
       input_val += ".00";
     }
   }
 
-  // send updated string to input
   input.val(input_val);
-
-  // put caret back in the right position
   var updated_len = input_val.length;
   caret_pos = updated_len - original_len + caret_pos;
   input[0].setSelectionRange(caret_pos, caret_pos);
 }
 
+function to12HourTime(time) {
+  // Create a Date object at the current date with the specified time
+  var [hours, minutes] = time.split(':').map(Number);
+  var date = new Date();
+  date.setHours(hours, minutes, 0, 0); // Set hours and minutes, seconds and ms to 0
+
+  // Format hours for 12-hour time format
+  var period = date.getHours() >= 12 ? 'PM' : 'AM';
+  var hour12 = date.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour time format
+  var minuteFormatted = date.getMinutes().toString().padStart(2, '0'); // Ensure minutes are two digits
+
+  return `${hour12}:${minuteFormatted} ${period}`;
+}
+
+// Form submission handling
 document.getElementById("eventForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
-  // Other form inputs
+  // Collect form data
   var host = document.getElementById("hostInput").value.trim();
   var sport = document.getElementById("sportInput").value.trim().toLowerCase();
   var title = document.getElementById("titleInput").value.trim();
@@ -122,20 +107,19 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
   var cost = document.getElementById("currency-field").value.trim();
   var limit = document.getElementById("attendeeInput").value.trim();
 
-  // Check for empty required fields
+  time = to12HourTime(time)
+
+  console.log(time)
+  // Validate required fields
   if (!host || !sport || !title || !address || !city || !postalCode || !date || !time || !description || !cost || !limit) {
     handleFormMessage(false, "Please fill in all the fields.");
-    return; // Stop if validation fails
-  }else{
-    handleFormMessage(true, "Congratulations! You successfully post an event.")
+    return;
+  } else {
+    handleFormMessage(true, "Congratulations! You successfully posted an event.");
   }
 
-
-
-
-  // Get the file from the input
+  // Image file handling
   var imageFile = document.getElementById("input-image").files[0];
-
 
   function saveEventData(eventData) {
     db.collection("Events").add(eventData)
@@ -148,21 +132,16 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
   }
 
   if (imageFile) {
-    // Create a storage reference
     var storageRef = firebase.storage().ref('images/' + imageFile.name);
-
-    // Upload the file
     var uploadTask = storageRef.put(imageFile);
 
     uploadTask.on('state_changed', function (snapshot) {
-      // Observe state change events such as progress, pause, and resume
+      // Handle state changes
     }, function (error) {
-      // Handle unsuccessful uploads
-      console.log(error);
+      console.log(error); // Handle unsuccessful uploads
     }, function () {
-      // Handle successful uploads on complete
+      // On successful upload
       uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-        // Once the image is uploaded and you have the URL, create your event data
         var eventData = {
           host: host,
           sport: sport,
@@ -179,22 +158,42 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
           image: downloadURL // Use the download URL for the image
         };
 
-        // Save the event data to Firestore
+        // Save event data with image URL
         saveEventData(eventData);
       });
     });
-  } 
-  document.getElementById("eventForm").reset();
+  } else {
+    // Save event data without an image
+    var eventData = {
+      host: host,
+      sport: sport,
+      title: title,
+      address: address,
+      city: city,
+      postalCode: postalCode,
+      date: date,
+      time: time,
+      description: description,
+      cost: cost,
+      limit: limit,
+      attendees: 0
+    };
 
+    saveEventData(eventData);
+  }
+
+  // Reset the form
+  document.getElementById("eventForm").reset();
 });
 
+// Prevent form submission on 'Enter' keypress
 document.getElementById("eventForm").addEventListener("keypress", function (event) {
-  // Check if the pressed key is 'Enter'
   if (event.key === "Enter") {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
   }
 });
 
+// Function to display form submission messages
 function handleFormMessage(isSuccess, message) {
   var successDiv = document.getElementById("formSuccess");
   var errorDiv = document.getElementById("formError");
@@ -211,5 +210,3 @@ function handleFormMessage(isSuccess, message) {
     errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
-
-
