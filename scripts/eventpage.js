@@ -102,7 +102,7 @@ function createEventCard(collectionId) {
             }
 
             newCard.querySelector(".title").innerHTML = title;
-            newCard.querySelector(".attendees").innerHTML = attendees;
+            newCard.querySelector(".attendees").innerHTML = attendees.length;
             newCard.querySelector(".limit").innerHTML = limit;
             newCard.querySelector(".cost").innerHTML = cost;
             newCard.querySelector(".location").innerHTML = address + ", " + postalCode;
