@@ -46,11 +46,11 @@ function attachViewMoreListeners() {
           document.querySelector('.viewEss').addEventListener('click', function () {
             document.querySelector('.appendEss').innerHTML = `
             <div class="pl-2">
-            <p class="pb-2" style="font-size: 25px">Host Name: ${host}</p>
-              <p class="pb-2" style="font-size: 25px">Date: ${date}</p>
-              <p class="pb-2" style="font-size: 25px">Time: ${time}</p>
-              <p class="pb-2" style="font-size: 25px">Cost: ${cost}</p>
-              <p class="pb-2" style="font-size: 25px">Location: ${full_address}<p>
+            <p class="pb-2" style="font-size: 15px">Host Name: ${host}</p>
+              <p class="pb-2" style="font-size: 15px">Date: ${date}</p>
+              <p class="pb-2" style="font-size: 15px">Time: ${time}</p>
+              <p class="pb-2" style="font-size: 15px">Cost: ${cost}</p>
+              <p class="pb-2" style="font-size: 15px">Location: ${full_address}<p>
             </div>
             `
             toggleVisibility('appendEss');
@@ -148,3 +148,21 @@ function handleJoinEvent(documentId, joinButton, joinTxt) {
   })
 }
 
+
+function setupBackButton() {
+  const backButton = document.querySelector('.backbtn');
+  if (backButton) {
+    backButton.addEventListener('click', function () {
+      const viewMoreResult = document.querySelector('.viewMoreResult');
+      if (viewMoreResult) {
+        viewMoreResult.style.display = 'none';
+      }
+
+      document.querySelectorAll('.eventcard, .gymcard, .gymPortal').forEach(function (element) {
+        element.style.display = '';
+      });
+    });
+  }
+}
+
+setupBackButton();

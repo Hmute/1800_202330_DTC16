@@ -58,7 +58,7 @@ function createFavoriteCard() {
     </div>
     <div class="row">
       <div class="col-6">
-        Attendees: <span class="attendees">${attendees}</span>/<span class="limit">${limit}</span> </div>
+        Attendees: <span class="attendees">${attendees.length}</span>/<span class="limit">${limit}</span> </div>
       <div class="col-6">
         Cost: <span class="cost">${cost}</span></div>
     </div>
