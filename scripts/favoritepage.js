@@ -74,7 +74,7 @@ function createFavoriteCard() {
                 imgElement.src = imageSrc;
               }
 
-              updateHeartIcon(user, currentDocId, divElement); // Update the heart icon
+              updateHeartIcon(user, currentDocId, divElement);
               favoriteCardContainer.appendChild(divElement);
               attachViewMoreListeners()
             });
