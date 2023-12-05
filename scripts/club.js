@@ -67,7 +67,7 @@ function saveClubInfo() {
                                 return;
                             }
 
-                            // Asynchronous call to save the form fields into Firestore
+                            // Asynchronous call to save the form fields into Fire                                                                                                                              store
                             var teamRef = db.collection("users").doc(user.uid).collection("teams").doc();
                             teamRef.set({
                                 teamName: teamName,
