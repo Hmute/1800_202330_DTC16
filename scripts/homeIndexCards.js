@@ -149,6 +149,7 @@ displayCardsDynamically("Events");
 //     });
 //   });
 // }
+
 async function displayGymCardsDynamically(collection) {
   try {
     let cardTemplate = document.getElementById("gymCardTemplate");
@@ -164,21 +165,21 @@ async function displayGymCardsDynamically(collection) {
       const information = eventData.data().Information;
       const gymImage = eventData.data().gymImage;
 
-      let newcard = cardTemplate.content.cloneNode(true);
+      let newCard = cardTemplate.content.cloneNode(true);
 
-      newCard.querySelector(".title").innerHTML = title;
+      newCard.querySelector("#title").innerHTML = title;
       newCard.querySelector(".starNumber").innerHTML = rating;
       newCard.querySelector(".boxInfo").innerHTML = information;
       newCard.querySelector("#gym-card-image").src = gymImage;
 
-      document.getElementById("homeCardContainer").appendChild(newcard);
+      document.getElementById("homeCardContainer").appendChild(newCard);
     });
   } catch (error) {
     console.error("Error fetching documents: ", error);
   }
 }
 
-createGymCard("Gyms");
+displayGymCardsDynamically("Gyms");
 
 
 
