@@ -101,7 +101,9 @@ async function displayCardsDynamically(collection) {
       newcard.querySelector('.attendees').innerHTML = attendees.length;
       newcard.querySelector('.limit').innerHTML = limit;
       newcard.querySelector('.cost').innerHTML = cost;
-      newcard.querySelector('.location').innerHTML = googleMapsUrl;
+
+      newcard.querySelector('.location').href = googleMapsUrl;
+      newcard.querySelector('.location').innerHTML = full_address;
 
       document.getElementById("homeCardContainer").appendChild(newcard);
     });
