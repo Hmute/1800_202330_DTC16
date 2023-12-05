@@ -120,6 +120,104 @@ function getRandomIndices(totalItems, count) {
 }
 displayCardsDynamically("Events");
 
+// function createGymCard(collectionId) {
+
+//   let cardTemplate = document.getElementById("homeCardTemplate");
+
+//   db.collection(collectionId).get().then(documents => {
+//     documents.forEach(docData => {
+//       var title = docData.data().Gym_name;
+//       var rating = docData.data().Rating;
+//       var information = docData.data().Information;
+//       var docID = docData.id;
+//       var gymImage = docData.data().gymImage;
+//       let newCard = cardTemplate.content.cloneNode(true);
+
+//       // newCard.setAttribute("data-document-id", docData.id);
+//       newCard.querySelector(".title").innerHTML = title;
+//       newCard.querySelector(".starNumber").innerHTML = rating;
+//       newCard.querySelector(".boxInfo").innerHTML = information;
+//       newCard.querySelector("#gym-card-image").innerHTML = `
+//             <img src="${gymImage}" alt="" class="img-fluid" id"logo-image">
+//             `
+//       newCard.querySelector(".card-href").href = "gympage.html?gymdocID=" + docID;
+
+
+//       document.getElementById("gymCardContainer").appendChild(newCard);
+//       counter++;
+
+//     });
+//   });
+// }
+async function displayGymCardsDynamically(collection) {
+  try {
+    let cardTemplate = document.getElementById("gymCardTemplate");
+
+    const docData = await db.collection(collection).get();
+
+    const randomIndices = getRandomIndices(docData.size, 2);
+
+    randomIndices.forEach(async (index) => {
+      const eventData = docData.docs[index];
+      const title = eventData.data().Gym_name;
+      const rating = eventData.data().Rating;
+      const information = eventData.data().Information;
+      const gymImage = eventData.data().gymImage;
+
+      let newcard = cardTemplate.content.cloneNode(true);
+
+      newCard.querySelector(".title").innerHTML = title;
+      newCard.querySelector(".starNumber").innerHTML = rating;
+      newCard.querySelector(".boxInfo").innerHTML = information;
+      newCard.querySelector("#gym-card-image").src = gymImage;
+
+      document.getElementById("homeCardContainer").appendChild(newcard);
+    });
+  } catch (error) {
+    console.error("Error fetching documents: ", error);
+  }
+}
+
+createGymCard("Gyms");
+
+
+
+// async function createRandomGymCards(collectionId, numCards) {
+//   try {
+//     let cardTemplate = document.getElementById("gymCardTemplate");
+
+//     const docData = await db.collection(collectionId).get();
+//     const randomIndices = getRandomIndices(docData.size, numCards);
+
+//     randomIndices.forEach(async (index) => {
+//       const docDataItem = docData.docs[index];
+//       const title = docDataItem.data().Gym_name;
+//       const rating = docDataItem.data().Rating;
+//       const information = docDataItem.data().Information;
+//       const docID = docDataItem.id;
+//       const gymImage = docDataItem.data().gymImage;
+
+//       let newCard = cardTemplate.content.cloneNode(true);
+//       // newCard = newCard.querySelector(".gymcard");
+
+//       newCard.setAttribute("data-document-id", docDataItem.id);
+//       newCard.querySelector(".box-title").innerHTML = title;
+//       newCard.querySelector(".starnumber").innerHTML = rating;
+//       newCard.querySelector(".boxinfo").innerHTML = information;
+//       newCard.querySelector("#gym-card-image").innerHTML = `
+//         <img src="${gymImage}" alt="" class="img-fluid" id="logo-image">
+//       `;
+//       newCard.querySelector(".card-href").href = "gympage.html?gymdocID=" + docID;
+
+//       document.getElementById("gymCardContainer").appendChild(newcard);
+//     });
+//   } catch (error) {
+//     console.error("Error fetching gym documents: ", error);
+//   }
+// }
+
+// createRandomGymCards("Gyms", 2)
+
 // function createJoinedEvents(){
 
 //     firebase.auth().onAuthStateChanged((user) =>{
