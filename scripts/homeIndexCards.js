@@ -46,7 +46,6 @@ function createUpcoming() {
     style="height: 440px;border-style: solid; border-width: 0.01ch; font-size: 15px;">
     <img src="${imageSrc}" height="280px" width="414px" class="pt-2 logo" style="border-radius: 15px;">
     <h1 style="display: inline-block;" class="pt-2 pr-2 title"><b>${title}</b></h1>
-    <i class="far fa-heart" style="font-size: 25px;"></i>
     <div class="row">
       <div class="col-6">
         Date: <span class="date">${date}</span></div>
