@@ -112,7 +112,39 @@
     
     
 
-    <!-- Next Part ---------------------------------------------------------------------------------->
+    <!-- Next Part 2 contents from Events and 2 Contents from Gym ------------------------------------------------------------------>
+
+    <div id="homeCardContainer"></div>
+
+    <template id="homeCardTemplate">
+        <div class="container border-dark-subtle fixed-height eventcard mt-5"
+            style="height: 440px;border-style: solid; border-width: 0.01ch; font-size: 15px;">
+            <img src="" height="280px" width="414px" class="pt-2 logo" style="border-radius: 15px;">
+            <h1 style="display: inline-block;" class="pt-2 pr-2 title"><b>${title}</b></h1>
+            <i class="far fa-heart" style="font-size: 25px;"></i>
+    
+            <div class="row">
+                <div class="col-6">
+                    Date: <span class="date"></span></div>
+                <div class="col-6">
+                    Time: <span class="time"></span></div>
+            </div>
+    
+            <div class="row">
+                <div class="col-6">
+                    Attendees: <span class="attendees"></span>/
+                    <span class="limit"></span> </div>
+                <div class="col-6">
+                    Cost: <span class="cost"></span></div>
+            </div>
+    
+            <p>Location: <a href="" class="location" style="color: violet;"
+                    target="_blank"></a>
+            </p>
+            <button class="mt-2 btn bg-primary viewMore" style="color: white; font-size: 15px;">View More</button>
+        </div>
+    </template>
+
     <!-- footer -->
     <footer class="bg-light text-center text-white fixed-bottom" style="z-index: 1; ">
         <div class="container pb-0" style="background-color: #EBE3D5; height: fit-content; height: 50px;">

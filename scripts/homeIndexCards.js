@@ -68,6 +68,57 @@ function createUpcoming() {
 
 createUpcoming();
 
+//this is for the Events no Sports
+async function displayCardsDynamically(collection) {
+  try {
+    let cardTemplate = document.getElementById("homeCardTemplate");
+
+    const docData = await db.collection(collection).get();
+
+    const randomIndices = getRandomIndices(docData.size, 2);
+
+    randomIndices.forEach(async (index) => {
+      const eventData = docData.docs[index];
+      const title = eventData.data().title;
+      const date = eventData.data().date;
+      const imageSrc = eventData.data().image;
+      const attendees = eventData.data().attendees;
+      const limit = eventData.data().limit;
+      const time = eventData.data().time;
+      const address = eventData.data().address;
+      const postalCode = eventData.data().postalCode;
+      const cost = eventData.data().cost;
+      const full_address = address + ", " + postalCode;
+      const encodedAddress = encodeURIComponent(full_address);
+      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+
+      let newcard = cardTemplate.content.cloneNode(true);
+
+      newcard.querySelector('.logo').src = imageSrc;
+      newcard.querySelector('.title').innerHTML = title;
+      newcard.querySelector('.date').innerHTML = date;
+      newcard.querySelector('.time').innerHTML = time;
+      newcard.querySelector('.attendees').innerHTML = attendees.length;
+      newcard.querySelector('.limit').innerHTML = limit;
+      newcard.querySelector('.cost').innerHTML = cost;
+      newcard.querySelector('.location').innerHTML = googleMapsUrl;
+
+      document.getElementById("homeCardContainer").appendChild(newcard);
+    });
+  } catch (error) {
+    console.error("Error fetching documents: ", error);
+  }
+}
+
+function getRandomIndices(totalItems, count) {
+  const indices = Array.from({ length: totalItems }, (_, index) => index);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  return indices.slice(0, count);
+}
+displayCardsDynamically("Events");
 
 // function createJoinedEvents(){
 
