@@ -17,7 +17,7 @@ if (/Mobi/.test(navigator.userAgent)) {
   });
 
   $("#timepicker").datetimepicker({
-    format: 'LT', // 12-hour format with AM/PM
+    format: 'LT', 
     icons: {
       up: "fa fa-chevron-up",
       down: "fa fa-chevron-down"
@@ -76,19 +76,19 @@ function formatCurrency(input, blur) {
   input[0].setSelectionRange(caret_pos, caret_pos);
 }
 
-function to12HourTime(time) {
-  // Create a Date object at the current date with the specified time
-  var [hours, minutes] = time.split(':').map(Number);
-  var date = new Date();
-  date.setHours(hours, minutes, 0, 0); // Set hours and minutes, seconds and ms to 0
+// function to12HourTime(time) {
+//   // Create a Date object at the current date with the specified time
+//   var [hours, minutes] = time.split(':').map(Number);
+//   var date = new Date();
+//   date.setHours(hours, minutes, 0, 0); // Set hours and minutes, seconds and ms to 0
 
 
-  var period = date.getHours() >= 12 ? 'PM' : 'AM';
-  var hour12 = date.getHours() % 12 || 12; 
-  var minuteFormatted = date.getMinutes().toString().padStart(2, '0'); 
+//   var period = date.getHours() >= 12 ? 'PM' : 'AM';
+//   var hour12 = date.getHours() % 12 || 12; 
+//   var minuteFormatted = date.getMinutes().toString().padStart(2, '0'); 
 
-  return `${hour12}:${minuteFormatted} ${period}`;
-}
+//   return `${hour12}:${minuteFormatted} ${period}`;
+// }
 
 
 document.getElementById("eventForm").addEventListener("submit", function (event) {
@@ -107,7 +107,7 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
   var cost = document.getElementById("currency-field").value.trim();
   var limit = document.getElementById("attendeeInput").value.trim();
 
-  time = to12HourTime(time)
+  
 
   console.log(time)
   
@@ -154,7 +154,7 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
           description: description,
           cost: cost,
           limit: limit,
-          attendees: 0,
+          attendees: [],
           image: downloadURL // Use the download URL for the image
         };
 
@@ -176,7 +176,7 @@ document.getElementById("eventForm").addEventListener("submit", function (event)
       description: description,
       cost: cost,
       limit: limit,
-      attendees: 0
+      attendees: []
     };
 
     saveEventData(eventData);
